@@ -1,0 +1,18 @@
+[
+    {
+      "name": "Adaline St. James",
+      "bio": "Adaline St. James has been a stylist for over 10 years with an impressive list of clients under her belt. If you’re looking for a chic timeless look, Adaline specializes in making you look like you should be photographed for Paris fashion week.",
+      "image": "./imgs/Spaceman.png"
+    },
+    {
+      "name": "Phoebe Adams",
+      "bio": "Looking for a fun eccentric wardrobe to match your personality? Look no further than Phoebe Adams! With experience in styling for magazine photo shoots and your favorite tv shows, Phoebe will make sure you turn heads everywhere you go.",
+      "image": "./imgs/SEI-Pets-Alive.png"
+    },
+    {
+      "name": "Zoe Hale",
+      "bio": "Edgy, cool, and effortless? Zoe Hale has mastered the trifecta like no other. Zoe has only been a stylist for 3 years and is already making waves in the fashion industry. Feel powerful and make it look easy with a diverse wardrobe that will reflect your confidence.",
+      "image": "./imgs/On-The-Same-Page.png"
+    }
+  ]
+  
