@@ -1,5 +1,6 @@
 import './App.css';
-import Main from './components/Main/Main';
+import Main from '../Main/Main';
+import Nav from '../Navbar/Nav'
 import { Auth0Provider } from '@auth0/auth0-react'
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN
@@ -16,6 +17,7 @@ function App() {
           redirect_uri: window.location.origin
         }}
       >
+      <Nav />
         <Main />
       </Auth0Provider>
     </div>

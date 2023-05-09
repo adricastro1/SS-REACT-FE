@@ -1,4 +1,4 @@
-
+import './Main.css'
 import Airtable from 'airtable';
 import { useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react'
