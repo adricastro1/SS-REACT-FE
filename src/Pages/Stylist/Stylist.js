@@ -3,6 +3,7 @@ function Stylist({ stylist, reviews }) {
       <div>
         <h3>{stylist.fields.Name}</h3>
         <p>{stylist.fields.Bio}</p>
+        <p>{stylist.fields.Contact}</p>
         {/* <ul>
           {reviews.length > 0 &&
             reviews.map((review) => (

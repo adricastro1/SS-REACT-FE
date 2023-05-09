@@ -33,7 +33,7 @@ function Home() {
 
     return (
         <section className="Home">
-            <h1>HELLO</h1>
+            <h1>Welcome</h1>
             {stylists.map((stylist) => (
                 <Stylist stylist={stylist} 
                 // reviews={reviews.filter(review => review.fields.Stylist[0] === stylist.id)}
