@@ -1,3 +1,4 @@
+import './Nav.css'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from "react-icons/fa"
@@ -12,7 +13,7 @@ function Header() {
     }
 
     return (
-        <header className='Header'>
+        <header className='Navbar'>
             <nav ref={navRef}>
                 <Link to="/" onClick={() => showNavbar()}>Home</Link>
                 <LoginButton />
