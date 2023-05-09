@@ -35,15 +35,12 @@ function Home() {
         <section className="Home">
             <h1>HELLO</h1>
             {stylists.map((stylist) => (
-                <div key={stylist.id}>
-                    <h3>{stylist.fields.Name}</h3>
-                    <p>{stylist.fields.Bio}</p>
-                    <p>{stylist.fields.Reviews}</p>
-                </div>
+                <Stylist stylist={stylist} 
+                // reviews={reviews.filter(review => review.fields.Stylist[0] === stylist.id)}
+                 />
             ))}
         </section>
     );
 }
 
 export default Home;
-
