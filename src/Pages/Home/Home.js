@@ -35,9 +35,7 @@ function Home() {
         <section className="Home">
             <h1>Welcome</h1>
             {stylists.map((stylist) => (
-                <Stylist stylist={stylist} 
-                // reviews={reviews.filter(review => review.fields.Stylist[0] === stylist.id)}
-                 />
+                <Stylist stylist={stylist} key={stylist.id} />
             ))}
         </section>
     );

@@ -1,18 +1,16 @@
+import {Link} from 'react-router-dom'
+
 function Stylist({ stylist, reviews }) {
+    console.log(stylist.id)
     return (
       <div>
         <h3>{stylist.fields.Name}</h3>
         <p>{stylist.fields.Bio}</p>
         <p>{stylist.fields.Contact}</p>
-        {/* <ul>
-          {reviews.length > 0 &&
-            reviews.map((review) => (
-              <li key={review.id}>
-                <p>{review.fields.Review}</p>
-                <p>{review.fields.Rating}</p>
-              </li>
-            ))}
-        </ul> */}
+        <Link to={`/stylists/${stylist.id}`}>
+        <button>
+        Details</button>
+        </Link>
       </div>
     );
   }

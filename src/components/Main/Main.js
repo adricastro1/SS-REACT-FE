@@ -1,13 +1,13 @@
 import {Routes, Route} from 'react-router'
 import Home from '../../Pages/Home/Home'
-// import Stylist from '../../pages/StylistProfile'
+import StylistProfile from '../../Pages/StylistProfile/StylistProfile'
 
 function Main(props){
     return (
     <main>
         <Routes>                
             <Route path="/" element={<Home/>} />
-            {/* <Route path="/stylist/:id" element={<Show/>} />  */}
+            <Route path="/stylists/:id" element={<StylistProfile/>} /> 
         </Routes>
     </main>
     )
