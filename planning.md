@@ -5,7 +5,7 @@
 - Personal stylist app that users can leave reviews for. A user can create, read, update, and delete their reviews. A user must login/sign up in order to review stylist.
 
 ## Wireframes
-<img src="public/imgs/P4_Wireframes2.png" alt="wireframes" width="50%" height="50%"> 
+<img src="public/imgs/P4_Wireframe2.png" alt="wireframes" width="50%" height="50%"> 
 
 
 ## ERD 
