@@ -21,7 +21,7 @@ const ReviewForm = () => {
         
 
         try {
-            await base("reviews").create(
+            await base("reviews").update(
                 {
                     Name: user.given_name,
                     Rating: rating,

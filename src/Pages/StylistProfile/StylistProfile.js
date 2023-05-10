@@ -1,7 +1,7 @@
 import Airtable from 'airtable';
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import ReviewForm from "../../components/ReviewForm/ReviewForm"
+import { useParams, Link } from "react-router-dom";
+import AddReviewForm from "../../components/ReviewForm/AddReviewForm"
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
 
@@ -26,7 +26,7 @@ const StylistProfile = () => {
         const stylistIds = record.get("Stylists") || [];
         return stylistIds.includes(id);
       });
-      setReviews(filteredReviews.map(record => record.fields));
+      setReviews(filteredReviews.map(record => ({ id: record.id, ...record.fields })));
     } catch (error) {
       console.error(error);
     }
@@ -40,6 +40,8 @@ const StylistProfile = () => {
   if (!stylist) {
     return <div>Loading...</div>;
   }
+console.log(stylist.Reviews)
+  console.log(reviews)
 
   return (
     <section>
@@ -47,13 +49,14 @@ const StylistProfile = () => {
       <p>{stylist.fields.Bio}</p>
       <p>{stylist.fields.Contact}</p>
       <h2>Reviews</h2>
-      <ReviewForm stylistId={id} /> 
+      <AddReviewForm stylistId={id} /> 
       {reviews.map((review) => (
         <div key={review.id}>
           <p>Review ID: {review.id}</p>
           <p>User: {review.Name}</p>
           <p>Rating: {review.Rating}</p>
           <p>Comment: {review.Comment}</p>
+          <Link to={`/reviews/${review.id}/edit`}><button>Edit</button></Link>
         </div>
       ))}
     </section>
