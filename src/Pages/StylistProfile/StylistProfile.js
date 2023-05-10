@@ -56,7 +56,7 @@ console.log(stylist.Reviews)
           <p>User: {review.Name}</p>
           <p>Rating: {review.Rating}</p>
           <p>Comment: {review.Comment}</p>
-          <Link to={`/reviews/${review.id}/edit`}><button>Edit</button></Link>
+          <Link review={review} to={`/reviews/${review.id}/edit`}><button>Edit</button></Link>
         </div>
       ))}
     </section>
