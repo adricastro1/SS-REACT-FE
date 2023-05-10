@@ -33,8 +33,6 @@ const StylistProfile = () => {
     return <div>Loading...</div>;
   }
 
-  console.log(reviews)
-
   return (
     <section>
       <h1>{stylist.fields.Name}</h1>
