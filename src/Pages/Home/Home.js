@@ -8,9 +8,6 @@ const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).ba
 
 function Home() {
     const [stylists, setStylists] = useState([]);
-    const [reviews, setReviews] = useState([]);
-
-
 
     useEffect(() => {
         base("stylists")

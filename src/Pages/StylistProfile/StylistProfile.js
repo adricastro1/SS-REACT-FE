@@ -1,6 +1,7 @@
 import Airtable from 'airtable';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ReviewForm from "../../components/ReviewForm/ReviewForm"
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
 
@@ -39,6 +40,7 @@ const StylistProfile = () => {
       <p>{stylist.fields.Bio}</p>
       <p>{stylist.fields.Contact}</p>
       <h2>Reviews</h2>
+      <ReviewForm/>
       {reviews.map((review) => (
         <div key={review.id}>
           <p>Review ID: {review.id}</p>
