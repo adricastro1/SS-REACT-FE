@@ -1,54 +1,55 @@
 import React, { useState } from "react";
 import Airtable from "airtable";
 import { useParams } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+
+
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(
     process.env.REACT_APP_AIRTABLE_BASE_ID
 );
 
 const ReviewForm = () => {
+    const { user, isAuthenticated, isLoading } = useAuth0();
     const [name, setName] = useState("");
     const [rating, setRating] = useState("");
     const [comment, setComment] = useState("");
     const { id } = useParams();
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-      
+        
+
         try {
-          await base("reviews").create(
-            {
-              Name: name,
-              Rating: rating,
-              Comment: comment,
-              Stylists: [id], 
-            },
-            { typecast: true }
-          );
-      
-          setName("");
-          setRating("");
-          setComment("");
-      
-          window.location.reload();
+            await base("reviews").create(
+                {
+                    Name: user.given_name,
+                    Rating: rating,
+                    Comment: comment,
+                    Stylists: [id],
+                },
+                { typecast: true }
+            );
+
+            setRating("");
+            setComment("");
+
+            window.location.reload();
         } catch (error) {
-          console.error(error);
+            console.error(error);
         }
-      };
-      
+    };
+
+    if (isLoading) {
+        return <div>Loading ...</div>;
+    }
+
 
     return (
+        isAuthenticated && (
         <form onSubmit={handleSubmit}>
+            <h2>user: {user.name}</h2>
             <h3>Add a Review</h3>
-            <div>
-                <label htmlFor="name">Name:</label>
-                <input
-                    type="text"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-            </div>
             <div>
                 <label htmlFor="rating">Rating:</label>
                 <input
@@ -68,6 +69,7 @@ const ReviewForm = () => {
             </div>
             <button type="submit">Submit</button>
         </form>
+        )
     );
 };
 
