@@ -10,7 +10,7 @@ const StylistProfile = () => {
   const [stylist, setStylist] = useState(null);
   const [reviews, setReviews] = useState([]);
 
-  const getStylist = async () => {
+  const fetchStylist = async () => {
     try {
       const record = await base("stylists").find(id);
       setStylist(record);
@@ -19,18 +19,25 @@ const StylistProfile = () => {
     }
   };
 
-  useEffect(() => {
-    base("reviews")
-      .select({ view: "Grid view" })
-      .eachPage((records, fetchNextPage) => {
-        setReviews((prevReviews) => [...prevReviews, ...records]);
-        fetchNextPage();
+  const fetchReviews = async () => {
+    try {
+      const response = await base("reviews").select({ view: "Grid view" }).all();
+      const filteredReviews = response.filter(record => {
+        const stylistIds = record.get("Stylists") || [];
+        return stylistIds.includes(id);
       });
+      setReviews(filteredReviews.map(record => record.fields));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    getStylist();
+  useEffect(() => {
+    fetchReviews();
+    fetchStylist();
   }, [id]);
 
-  if (!stylist || reviews.length === 0) {
+  if (!stylist) {
     return <div>Loading...</div>;
   }
 
@@ -40,13 +47,13 @@ const StylistProfile = () => {
       <p>{stylist.fields.Bio}</p>
       <p>{stylist.fields.Contact}</p>
       <h2>Reviews</h2>
-      <ReviewForm/>
+      <ReviewForm stylistId={id} /> 
       {reviews.map((review) => (
         <div key={review.id}>
           <p>Review ID: {review.id}</p>
-          <p>User: {review.fields.Name}</p>
-          <p>Rating: {review.fields.Rating}</p>
-          <p>Comment: {review.fields.Comment}</p>
+          <p>User: {review.Name}</p>
+          <p>Rating: {review.Rating}</p>
+          <p>Comment: {review.Comment}</p>
         </div>
       ))}
     </section>

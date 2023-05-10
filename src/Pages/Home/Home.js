@@ -9,6 +9,7 @@ const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).ba
 function Home() {
     const [stylists, setStylists] = useState([]);
 
+
     useEffect(() => {
         base("stylists")
             .select({ view: "Grid view" })

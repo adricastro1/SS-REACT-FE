@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom'
 
-function Stylist({ stylist, reviews }) {
-    console.log(stylist.id)
+function Stylist({ stylist }) {
     return (
       <div>
         <h3>{stylist.fields.Name}</h3>
