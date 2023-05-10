@@ -10,6 +10,8 @@ function Home() {
     const [stylists, setStylists] = useState([]);
     const [reviews, setReviews] = useState([]);
 
+
+
     useEffect(() => {
         base("stylists")
             .select({ view: "Grid view" })
@@ -17,13 +19,10 @@ function Home() {
                 setStylists(stylists => [...stylists, ...records]);
                 fetchNextPage();
             });
-        base("reviews")
-            .select({ view: "Grid view" })
-            .eachPage((records, fetchNextPage) => {
-                setReviews(reviews => [...reviews, ...records]);
-                fetchNextPage();
-            });
+
     }, []);
+
+
 
     const { isLoading } = useAuth0();
 
@@ -35,7 +34,7 @@ function Home() {
         <section className="Home">
             <h1>Welcome</h1>
             {stylists.map((stylist) => (
-                <Stylist stylist={stylist} key={stylist.id} />
+                <Stylist stylist={stylist} key={stylist.id}/>
             ))}
         </section>
     );

@@ -2,39 +2,55 @@ import Airtable from 'airtable';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID)
+const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
 
+const StylistProfile = () => {
+  const { id } = useParams();
+  const [stylist, setStylist] = useState(null);
+  const [reviews, setReviews] = useState([]);
 
-const StylistProfile = (props) => {
-    const { id } = useParams()
-    console.log("here is this stylist's:", id)
-    const [stylist, setStylist] = useState(null);
-
-    const getStylist = async () => {
-        try {
-          const record = await base("stylists").find(id);
-          setStylist(record);
-        } catch (error) {
-          console.error(error);
-        }
-      };
-      
-
-    useEffect(() => {
-        getStylist()
-    }, [id]);
-
-    if (!stylist) {
-        return <div>Loading...</div>;
+  const getStylist = async () => {
+    try {
+      const record = await base("stylists").find(id);
+      setStylist(record);
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    return (
-        <section>
-            <h1>{stylist.fields.Name}</h1>
-            <p>{stylist.fields.Bio}</p>
-            <p>{stylist.fields.Contact}</p>
-        </section>
-    )
-}
+  useEffect(() => {
+    base("reviews")
+      .select({ view: "Grid view" })
+      .eachPage((records, fetchNextPage) => {
+        setReviews((prevReviews) => [...prevReviews, ...records]);
+        fetchNextPage();
+      });
 
-export default StylistProfile
+    getStylist();
+  }, [id]);
+
+  if (!stylist || reviews.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  console.log(reviews)
+
+  return (
+    <section>
+      <h1>{stylist.fields.Name}</h1>
+      <p>{stylist.fields.Bio}</p>
+      <p>{stylist.fields.Contact}</p>
+      <h2>Reviews</h2>
+      {reviews.map((review) => (
+        <div key={review.id}>
+          <p>Review ID: {review.id}</p>
+          <p>User: {review.fields.Name}</p>
+          <p>Rating: {review.fields.Rating}</p>
+          <p>Comment: {review.fields.Comment}</p>
+        </div>
+      ))}
+    </section>
+  );
+};
+
+export default StylistProfile;
