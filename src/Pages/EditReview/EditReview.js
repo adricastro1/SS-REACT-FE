@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import Airtable from "airtable";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -8,14 +8,12 @@ const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).ba
 );
 
 const EditReviewForm = () => {
-    const { id } = useParams();
+    const { id, stylistId } = useParams();
     const { user, isAuthenticated, isLoading } = useAuth0();
     const [name, setName] = useState("");
     const [rating, setRating] = useState("");
     const [comment, setComment] = useState("");
     const navigate = useNavigate()
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,7 +33,7 @@ const EditReviewForm = () => {
 
             setRating("");
             setComment("");
-            navigate('/')
+            navigate(`/stylists/${stylistId}`)
 
         } catch (error) {
             console.error(error);
@@ -47,13 +45,28 @@ const EditReviewForm = () => {
 
         try {
             await base("Reviews").destroy(id);
-            window.location.reload();
-            navigate('/')
+            navigate(`/stylists/${stylistId}`);
         } catch (error) {
             console.error(error);
-            navigate('/')
+            navigate(`/stylists/${stylistId}`);
         }
     };
+
+    const fetchReviewData = async () => {
+      try {
+        const record = await base("Reviews").find(id);
+        setName(record.fields.Name);
+        setRating(record.fields.Rating);
+        setComment(record.fields.Comment);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    useEffect(() => {
+        fetchReviewData();
+      }, [id]);
+
 
     if (isLoading) {
         return <div>Loading ...</div>;

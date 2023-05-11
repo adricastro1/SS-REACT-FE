@@ -62,7 +62,11 @@ const StylistProfile = () => {
                     <p>Comment: {review.Comment}</p>
                     <p>Owner: {review.Owner}</p>
                     {isAuthenticated && review.Owner === user?.sub && (
-                        <Link review={review} stylist={stylist} key={stylist.id} to={`/reviews/${review.id}/edit`}><button>Edit</button></Link>
+                        <Link 
+                        review={review} 
+                        stylist={stylist} 
+                        key={stylist.id} 
+                        to={`/reviews/${review.id}/edit/${id}`}><button>Edit</button></Link>
                     )}
                 </div>
             ))}

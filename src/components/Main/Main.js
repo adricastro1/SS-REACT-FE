@@ -9,7 +9,7 @@ function Main(){
         <Routes>                
             <Route path="/" element={<Home/>} />
             <Route path="/stylists/:id" element={<StylistProfile/>} /> 
-            <Route path="/reviews/:id/edit" element={<EditReview/>} /> 
+            <Route path="/reviews/:id/edit/:stylistId" element={<EditReview />} />
         </Routes>
     </main>
     )
