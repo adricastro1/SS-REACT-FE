@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Airtable from 'airtable';
 import { useParams } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Button } from 'rsuite';
+import 'rsuite/dist/rsuite.min.css';
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(
   process.env.REACT_APP_AIRTABLE_BASE_ID
@@ -60,7 +62,7 @@ const ReviewForm = () => {
             <label htmlFor="comment">Comment:</label>
             <textarea id="comment" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
           </div>
-          <button type="submit">Submit</button>
+          <Button type="submit">Submit</Button>
         </form>
       ) : (
         <h3>Please log in to leave a review.</h3>

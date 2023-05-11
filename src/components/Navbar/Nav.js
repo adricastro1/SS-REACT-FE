@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from "react-icons/fa"
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
+import { Affix } from 'rsuite';
 
 function Header() {
 
@@ -13,7 +14,7 @@ function Header() {
     }
 
     return (
-        <header className='Navbar'>
+        <Affix className='Navbar'>
             <nav ref={navRef}>
                 <Link to="/" onClick={() => showNavbar()}>Home</Link>
                 <LoginButton />
@@ -23,7 +24,7 @@ function Header() {
             <button className='nav-btn' onClick={showNavbar}>
                 <FaBars />
             </button>
-        </header>
+        </Affix>
     );
 }
 

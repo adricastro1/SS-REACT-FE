@@ -1,7 +1,9 @@
-import Airtable from 'airtable';
+import 'rsuite/dist/rsuite.min.css';
+import { Loader, Placeholder, Button } from 'rsuite';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import Airtable from 'airtable';
 import AddReviewForm from "../../components/ReviewForm/AddReviewForm"
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
@@ -40,7 +42,12 @@ const StylistProfile = () => {
     }, [id]);
 
     if (isLoading || !stylist) {
-        return <div>Loading...</div>;
+        return (
+            <div>
+                <Placeholder.Paragraph rows={8} />
+                <Loader backdrop content="loading..." vertical />
+            </div>
+        );
     }
 
     return (
@@ -62,11 +69,11 @@ const StylistProfile = () => {
                     <p>Comment: {review.Comment}</p>
                     <p>Owner: {review.Owner}</p>
                     {isAuthenticated && review.Owner === user?.sub && (
-                        <Link 
-                        review={review} 
-                        stylist={stylist} 
-                        key={stylist.id} 
-                        to={`/reviews/${review.id}/edit/${id}`}><button>Edit</button></Link>
+                        <Link
+                            review={review}
+                            stylist={stylist}
+                            key={stylist.id}
+                            to={`/reviews/${review.id}/edit/${id}`}><Button>Edit</Button></Link>
                     )}
                 </div>
             ))}

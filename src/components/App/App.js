@@ -17,7 +17,7 @@ function App() {
           redirect_uri: window.location.origin
         }}
       >
-      <Nav />
+        <Nav />
         <Main />
       </Auth0Provider>
     </div>
