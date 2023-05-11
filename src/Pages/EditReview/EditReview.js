@@ -7,14 +7,14 @@ const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).ba
   process.env.REACT_APP_AIRTABLE_BASE_ID
 );
 
-const EditReviewForm = ({review}) => {
+const EditReviewForm = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const [rating, setRating] = useState("");
   const [comment, setComment] = useState("");
-  const { reviewId } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate()
 
-
+console.log(id)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const EditReviewForm = ({review}) => {
     try {
       await base("Reviews").update([
         {
-          id: 'recl1r8Fx822cmVkH',
+          id: id,
           fields: {
             Name: user.given_name,
             Rating: rating,
@@ -44,7 +44,7 @@ const EditReviewForm = ({review}) => {
     e.preventDefault();
 
     try {
-      await base("Reviews").destroy('recl1r8Fx822cmVkH');
+      await base("Reviews").destroy(id);
       window.location.reload();
       navigate('/')
     } catch (error) {
