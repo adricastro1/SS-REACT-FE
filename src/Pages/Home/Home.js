@@ -2,14 +2,12 @@ import './Home.css'
 import Airtable from 'airtable';
 import { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react'
-import Stylist from '../Stylist/Stylist';
+import Stylist from '../../components/Stylist/Stylist'
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID)
 
 function Home() {
     const [stylists, setStylists] = useState([]);
-    const [reviews, setReviews] = useState([]);
-
 
 
     useEffect(() => {
