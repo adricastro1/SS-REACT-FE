@@ -9,6 +9,7 @@ const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).ba
 
 const EditReviewForm = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const [name, setName] = useState("");
   const [rating, setRating] = useState("");
   const [comment, setComment] = useState("");
   const { id } = useParams();
@@ -24,9 +25,10 @@ const EditReviewForm = () => {
         {
           id: id,
           fields: {
-            Name: user.given_name,
+            Name: name,
             Rating: rating,
             Comment: comment,
+            Owner: user.sub
           },
         },
       ], { typecast: true });
@@ -60,6 +62,15 @@ const EditReviewForm = () => {
     isAuthenticated && (
       <form onSubmit={handleSubmit}>
         <h3>Edit Review</h3>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="string"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
         <div>
           <label htmlFor="rating">Rating:</label>
           <input

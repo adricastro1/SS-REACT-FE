@@ -1,75 +1,72 @@
-import React, { useState } from "react";
-import Airtable from "airtable";
-import { useParams } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
-
-
+import React, { useState } from 'react';
+import Airtable from 'airtable';
+import { useParams } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(
-    process.env.REACT_APP_AIRTABLE_BASE_ID
+  process.env.REACT_APP_AIRTABLE_BASE_ID
 );
 
 const ReviewForm = () => {
-    const { user, isAuthenticated, isLoading } = useAuth0();
-    const [rating, setRating] = useState("");
-    const [comment, setComment] = useState("");
-    const { id } = useParams();
-    
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const [name, setName] = useState('');
+  const [rating, setRating] = useState('');
+  const [comment, setComment] = useState('');
+  const { id } = useParams();
 
-        try {
-            await base("reviews").create(
-                {
-                    Name: user.given_name,
-                    Rating: rating,
-                    Comment: comment,
-                    Stylists: [id],
-                },
-                { typecast: true }
-            );
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-            setRating("");
-            setComment("");
+    try {
+      await base('reviews').create(
+        {
+          Name: name,
+          Rating: rating,
+          Comment: comment,
+          Stylists: [id],
+          Owner: user.sub,
+        },
+        { typecast: true }
+      );
 
-            window.location.reload();
-        } catch (error) {
-            console.error(error);
-        }
-    };
+      setRating('');
+      setComment('');
 
-    if (isLoading) {
-        return <div>Loading ...</div>;
+      window.location.reload();
+    } catch (error) {
+      console.error(error);
     }
+  };
 
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
 
-    return (
-        isAuthenticated && (
+  return (
+    <>
+      {isAuthenticated ? (
         <form onSubmit={handleSubmit}>
-            <h2>user: {user.name}</h2>
-            <h3>Add a Review</h3>
-            <div>
-                <label htmlFor="rating">Rating:</label>
-                <input
-                    type="number"
-                    id="rating"
-                    value={rating}
-                    onChange={(e) => setRating(e.target.value)}
-                />
-            </div>
-            <div>
-                <label htmlFor="comment">Comment:</label>
-                <textarea
-                    id="comment"
-                    value={comment}
-                    onChange={(e) => setComment(e.target.value)}
-                ></textarea>
-            </div>
-            <button type="submit">Submit</button>
+          <h2>user: {user.name}</h2>
+          <h3>Add a Review</h3>
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input type="string" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+          </div>
+          <div>
+            <label htmlFor="rating">Rating:</label>
+            <input type="number" id="rating" value={rating} onChange={(e) => setRating(e.target.value)} />
+          </div>
+          <div>
+            <label htmlFor="comment">Comment:</label>
+            <textarea id="comment" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+          </div>
+          <button type="submit">Submit</button>
         </form>
-        )
-    );
+      ) : (
+        <h3>Please log in to leave a review.</h3>
+      )}
+    </>
+  );
 };
 
 export default ReviewForm;

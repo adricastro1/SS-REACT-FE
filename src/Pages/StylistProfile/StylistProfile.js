@@ -56,6 +56,7 @@ console.log(stylist.Reviews)
           <p>User: {review.Name}</p>
           <p>Rating: {review.Rating}</p>
           <p>Comment: {review.Comment}</p>
+          <p>Owner: {review.Owner}</p>
           <Link review={review} stylist={stylist} key={stylist.id} to={`/reviews/${review.id}/edit`}><button>Edit</button></Link>
         </div>
       ))}
