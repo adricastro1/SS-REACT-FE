@@ -3,7 +3,7 @@ import Home from '../../Pages/Home/Home'
 import StylistProfile from '../../Pages/StylistProfile/StylistProfile'
 import EditReview from '../../Pages/EditReview/EditReview'
 
-function Main(props){
+function Main(){
     return (
     <main>
         <Routes>                

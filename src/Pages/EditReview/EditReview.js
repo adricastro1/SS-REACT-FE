@@ -14,7 +14,7 @@ const EditReviewForm = () => {
   const { id } = useParams();
   const navigate = useNavigate()
 
-console.log(id)
+    
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +67,6 @@ console.log(id)
             id="rating"
             value={rating}
             onChange={(e) => setRating(e.target.value)}
-            placeholder=""
           />
         </div>
         <div>
@@ -76,7 +75,6 @@ console.log(id)
             id="comment"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            placeholder=""
           ></textarea>
         </div>
         <button type="submit">Submit</button>
