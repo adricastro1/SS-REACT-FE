@@ -39,16 +39,19 @@ const StylistProfile = () => {
         getStylist();
     }, [id]);
 
-    if (isLoading || !user) {
+    if (isLoading || !stylist) {
         return <div>Loading...</div>;
     }
 
-    console.log(user.sub)
     return (
         <section>
-            <h1>{stylist.fields.Name}</h1>
-            <p>{stylist.fields.Bio}</p>
-            <p>{stylist.fields.Contact}</p>
+            {stylist && (
+                <>
+                    <h1>{stylist.fields.Name}</h1>
+                    <p>{stylist.fields.Bio}</p>
+                    <p>{stylist.fields.Contact}</p>
+                </>
+            )}
             <h2>Reviews</h2>
             <AddReviewForm stylistId={id} />
             {reviews.map((review) => (
@@ -58,8 +61,7 @@ const StylistProfile = () => {
                     <p>Rating: {review.Rating}</p>
                     <p>Comment: {review.Comment}</p>
                     <p>Owner: {review.Owner}</p>
-                    <p>User: {user.sub}</p>
-                    {review.Owner === user.sub && (
+                    {isAuthenticated && review.Owner === user?.sub && (
                         <Link review={review} stylist={stylist} key={stylist.id} to={`/reviews/${review.id}/edit`}><button>Edit</button></Link>
                     )}
                 </div>
