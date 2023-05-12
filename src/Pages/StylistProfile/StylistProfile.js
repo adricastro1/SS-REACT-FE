@@ -1,6 +1,6 @@
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import './StylistProfile.css'
-import { Loader, Placeholder, Button } from 'rsuite';
+import { Loader, Button, FlexboxGrid } from 'rsuite';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -53,11 +53,15 @@ const StylistProfile = () => {
     return (
         <section>
             {stylist && (
-                <>
-                    <img src={process.env.PUBLIC_URL + `${stylist.fields.Image}`} alt="Profile-Banner" />
-                    <p>{stylist.fields.Bio}</p>
-                    <p>{stylist.fields.Contact}</p>
-                </>
+                <FlexboxGrid align="middle">
+                    <FlexboxGrid.Item colspan={16}>
+                        <img className='profile-img' src={process.env.PUBLIC_URL + `${stylist.fields.Image}`} alt="Profile-Banner" />
+                    </FlexboxGrid.Item>
+                    <FlexboxGrid.Item colspan={8}>
+                        <p>{stylist.fields.Bio}</p>
+                        <p>{stylist.fields.Contact}</p>
+                    </FlexboxGrid.Item>
+                </FlexboxGrid>
             )}
             <h2>Reviews</h2>
             <AddReviewForm stylistId={id} />

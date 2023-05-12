@@ -1,6 +1,7 @@
 .Navbar {
-  padding: 10px 40px;
+  padding: 10px 30px;
   background-color: #f4f4f4;
+  box-shadow: 3px 3px 10px #909090a2;
 }
 
 .Nav {
@@ -22,10 +23,11 @@
   cursor: pointer;
 }
 
-.btn {
+.Nav > button {
   color: #403f3f;
   font-size: 1.5em;
-  background-color: #DCCCBD;
-  border: 1px solid #868585;
+  background-color: #d3c6bb;
+  border: 1px solid #9b9b9b;
+  box-shadow: 3px 3px 8px #b2b2b2;
 }
 
