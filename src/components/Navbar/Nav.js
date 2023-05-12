@@ -1,30 +1,24 @@
 import './Nav.css'
-import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FaBars, FaTimes } from "react-icons/fa"
+import { Button, Navbar, Nav } from 'rsuite';
+import HomeIcon from '@rsuite/icons/legacy/Home';
+import 'rsuite/dist/rsuite-no-reset.min.css';
+
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
-import { Affix } from 'rsuite';
+
 
 function Header() {
-
-    const navRef = useRef();
-    const showNavbar = () => {
-        navRef.current.classList.toggle("responsive-nav")
-    }
-
     return (
-        <Affix className='Navbar'>
-            <nav ref={navRef}>
-                <Link to="/" onClick={() => showNavbar()}>Home</Link>
+        <Navbar appearance="default" className='Navbar'>
+            <Nav pullRight className='Nav'>
+                <Nav.Item icon={<HomeIcon />} >
+                    <Link to="/" className='home-link'>Home</Link>
+                </Nav.Item>
                 <LoginButton />
                 <LogoutButton />
-                <button className='nav-btn nav-close-btn' onClick={showNavbar}><FaTimes /></button>
-            </nav>
-            <button className='nav-btn' onClick={showNavbar}>
-                <FaBars />
-            </button>
-        </Affix>
+            </Nav>
+        </Navbar>
     );
 }
 

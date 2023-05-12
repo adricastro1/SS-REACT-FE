@@ -17,7 +17,6 @@ function App() {
           redirect_uri: window.location.origin
         }}
       >
-      <img src='../../../public/imgs/banner1.jpg'></img>
         <Nav />
         <Main />
       </Auth0Provider>

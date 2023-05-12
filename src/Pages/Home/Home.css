@@ -5,8 +5,13 @@
     align-items: center;
 }
 
-.Card {
+.Row {
+    width: 80%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    gap: 50px;
+}
+
+.Home img {
+    margin: 20px;
+    width: 75%;
 }

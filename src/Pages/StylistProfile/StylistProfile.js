@@ -1,4 +1,5 @@
-import 'rsuite/dist/rsuite.min.css';
+import 'rsuite/dist/rsuite-no-reset.min.css';
+import './StylistProfile.css'
 import { Loader, Placeholder, Button } from 'rsuite';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
@@ -44,7 +45,6 @@ const StylistProfile = () => {
     if (isLoading || !stylist) {
         return (
             <div>
-                <Placeholder.Paragraph rows={8} />
                 <Loader backdrop content="loading..." vertical />
             </div>
         );
@@ -54,7 +54,7 @@ const StylistProfile = () => {
         <section>
             {stylist && (
                 <>
-                    <img src={`${stylist.fields.Image}`} alt='stylist-profile'/>
+                    <img src={process.env.PUBLIC_URL + `${stylist.fields.Image}`} alt="Profile-Banner" />
                     <p>{stylist.fields.Bio}</p>
                     <p>{stylist.fields.Contact}</p>
                 </>

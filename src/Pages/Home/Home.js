@@ -37,16 +37,18 @@ function Home() {
 
     return (
         <section className='Home'>
-          <h1>Welcome</h1>
-          <Row>
-            {stylists.map((stylist) => (
-              <Col md={8} sm={12} key={stylist.id}>
-                <Card stylist={stylist} />
-              </Col>
-            ))}
-          </Row>
+            <img src={process.env.PUBLIC_URL + '/imgs/banner.png'} alt="Banner" />
+            <h3>
+Seeking styling assistance for an upcoming event? Want to upgrade your wardrobe? Book a session with a stylist and start transforming your look! Our experts will ensure you shine at any occasion while helping you discover your unique style. Pick a stylist below to get started!</h3>
+            <Row className='Row'>
+                {stylists.map((stylist) => (
+                    <Col className='Home-card' md={8} sm={12} key={stylist.id}>
+                        <Card stylist={stylist} />
+                    </Col>
+                ))}
+            </Row>
         </section>
-      );
+    );
 }
 
 export default Home;
