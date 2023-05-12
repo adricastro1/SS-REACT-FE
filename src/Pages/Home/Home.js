@@ -28,7 +28,7 @@ function Home() {
 
     if (isLoading) {
         return (
-            <div>
+            <div className='Card'>
                 <Placeholder.Paragraph rows={8} />
                 <Loader backdrop content="loading..." vertical />
             </div>
@@ -40,7 +40,7 @@ function Home() {
           <h1>Welcome</h1>
           <Row>
             {stylists.map((stylist) => (
-              <Col md={6} sm={12} key={stylist.id}>
+              <Col md={8} sm={12} key={stylist.id}>
                 <Card stylist={stylist} />
               </Col>
             ))}

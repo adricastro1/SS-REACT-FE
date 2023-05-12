@@ -8,8 +8,7 @@ function Card({ props, stylist }) {
   return (
     <Panel {...props} shaded bordered>
       <h3>{stylist.fields.Name}</h3>
-      <p>{stylist.fields.Bio}</p>
-      <p>{stylist.fields.Contact}</p>
+      <img src={`${stylist.fields.Image}`} />
       <Link to={`/stylists/${stylist.id}`}>
         <Button>Details</Button>
       </Link>

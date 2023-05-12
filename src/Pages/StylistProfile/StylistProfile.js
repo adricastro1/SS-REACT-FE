@@ -54,7 +54,7 @@ const StylistProfile = () => {
         <section>
             {stylist && (
                 <>
-                    <h1>{stylist.fields.Name}</h1>
+                    <img src={`${stylist.fields.Image}`} alt='stylist-profile'/>
                     <p>{stylist.fields.Bio}</p>
                     <p>{stylist.fields.Contact}</p>
                 </>
@@ -63,11 +63,9 @@ const StylistProfile = () => {
             <AddReviewForm stylistId={id} />
             {reviews.map((review) => (
                 <div key={review.id}>
-                    <p>Review ID: {review.id}</p>
-                    <p>User: {review.Name}</p>
+                    <p>{review.Name}</p>
                     <p>Rating: {review.Rating}</p>
                     <p>Comment: {review.Comment}</p>
-                    <p>Owner: {review.Owner}</p>
                     {isAuthenticated && review.Owner === user?.sub && (
                         <Link
                             review={review}
