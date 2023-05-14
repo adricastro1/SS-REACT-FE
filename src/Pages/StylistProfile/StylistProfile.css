@@ -24,8 +24,19 @@
     margin: 0;
 }
 
+.rs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: none;
+}
+
 .rs-list-item {
     padding: 30px;
     border-radius: 1em;
-    background-color: #f4f4f48d;
+    background-color: #f4f4f488;
+}
+
+.Name {
+    text-align: center;
 }

@@ -11,7 +11,10 @@ import LogoutButton from './LogoutButton';
 function Header() {
     return (
         <Navbar appearance="default" className='Navbar'>
-            <Nav pullRight className='Nav'>
+            <Nav className='Nav'>
+                <Nav.Item pullLeft>
+                    <h1 className='brand'>Sofia's Styling</h1>
+                </Nav.Item>
                 <Nav.Item icon={<HomeIcon />} >
                     <Link to="/" className='home-link'>Home</Link>
                 </Nav.Item>
