@@ -55,7 +55,7 @@ const StylistProfile = () => {
             {stylist && (
                 <FlexboxGrid>
                     <FlexboxGrid.Item colspan={13} >
-                    <h1 className='Name'>{stylist.fields.Name}</h1>
+                        <h1 className='Name'>{stylist.fields.Name}</h1>
                         <img className='profile-img' src={process.env.PUBLIC_URL + `${stylist.fields.Image}`} alt="Profile-Banner" />
                     </FlexboxGrid.Item>
                     <FlexboxGrid.Item colspan={10}>

@@ -12,9 +12,6 @@
 
 }
 
-/* .brand {
-  font-size: 2em;
-} */
 
 .home-link,
 .home-link:visited,
@@ -29,9 +26,8 @@
 
 .Nav > button {
   color: #403f3f;
-  font-size: 1.5em;
-  background-color: #d3c6bb;
-  border: 1px solid #9b9b9b;
-  box-shadow: 3px 3px 8px #b2b2b2;
+  font-size: 1.6em;
+  background-color: #dad4ce;
+  box-shadow: 3px 3px 8px #bab9b9;
 }
 

@@ -13,13 +13,11 @@ function Header() {
         <Navbar appearance="default" className='Navbar'>
             <Nav className='Nav'>
                 <Nav.Item pullLeft>
-                    <h1 className='brand'>Sofia's Styling</h1>
+                    <Link to="/" className='home-link'>Sofia's Styling</Link>
                 </Nav.Item>
-                <Nav.Item icon={<HomeIcon />} >
-                    <Link to="/" className='home-link'>Home</Link>
-                </Nav.Item>
-                <LoginButton />
-                <LogoutButton />
+                    <LoginButton />
+                    <LogoutButton />
+
             </Nav>
         </Navbar>
     );
