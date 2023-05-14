@@ -1,3 +1,5 @@
+import { Form, Button, Input, Rate } from 'rsuite';
+import 'rsuite/dist/rsuite-no-reset.min.css';
 import Airtable from "airtable";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -16,7 +18,7 @@ const EditReviewForm = () => {
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         try {
             await base("Reviews").update([
@@ -74,37 +76,25 @@ const EditReviewForm = () => {
 
     return (
         isAuthenticated && (
-            <form onSubmit={handleSubmit}>
-                <h3>Edit Review</h3>
-                <div>
-                    <label htmlFor="name">Name:</label>
-                    <input
-                        type="string"
-                        id="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="rating">Rating:</label>
-                    <input
-                        type="number"
-                        id="rating"
-                        value={rating}
-                        onChange={(e) => setRating(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="comment">Comment:</label>
-                    <textarea
-                        id="comment"
-                        value={comment}
-                        onChange={(e) => setComment(e.target.value)}
-                    ></textarea>
-                </div>
-                <button type="submit">Submit</button>
-                <button onClick={handleDelete}>Delete</button>
-            </form>
+            <Form onSubmit={handleSubmit} className='Form'>
+            <h3 className='title'>Add a Review</h3>
+                <Form.Group controlId="name">
+                  <Form.ControlLabel>Name:</Form.ControlLabel>
+                  <Input type="text" value={name} onChange={(value) => setName(value)} />
+                </Form.Group>
+              
+                <Form.Group controlId="rating">
+                  <Form.ControlLabel>Rating:</Form.ControlLabel>
+                  <Rate value={rating} onChange={(value) => setRating(value)} />
+                </Form.Group>
+  
+            <Form.Group controlId="comment">
+              <Form.ControlLabel>Comment:</Form.ControlLabel>
+              <Input as="textarea" rows={3} value={comment} onChange={(value) => setComment(value)} />
+            </Form.Group>
+  
+            <Button appearance="primary" type="submit">Submit</Button>
+          </Form>
         )
     );
 };

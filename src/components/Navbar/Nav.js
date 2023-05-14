@@ -11,7 +11,7 @@ function Header() {
     return (
             <Nav className='Nav'>
                 <Nav.Item>
-                    <Link to="/" className='home-link'>Sofia's Styling</Link>
+                    <Link to="/" className='home-title'>Sofia's Styling</Link>
                 </Nav.Item>
                 <div className='nav-right'>
                 <Nav.Item>

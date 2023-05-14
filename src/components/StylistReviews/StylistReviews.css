@@ -1,4 +1,4 @@
-.Reviews {
+.rs-panel {
     margin-top: 50px;
     font-size: 1.2em;
 }
@@ -26,7 +26,7 @@
 .rs-list-item {
     padding: 30px;
     border-radius: 1em;
-    background-color: #f4f4f488;
+    background-color: #f4f4f4;
 }
 
   

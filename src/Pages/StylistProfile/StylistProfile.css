@@ -1,12 +1,12 @@
 .Panel {
-    background-color: #f4f4f48d;
+    background-color: #f4f4f4;
     font-size: 1.3em;
     color: #403f3f;
     padding: 20px;
 }
 
 .Name {
-    text-align: center;
+    font-family: 'Aboreto', cursive;
 }
 
 .img-container {
