@@ -1,13 +1,17 @@
-import Airtable from 'airtable';
+import 'rsuite/dist/rsuite-no-reset.min.css';
+import './StylistProfile.css'
+import { Loader, FlexboxGrid, Panel, Divider } from 'rsuite';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Airtable from 'airtable';
 import AddReviewForm from "../../components/ReviewForm/AddReviewForm"
+import StylistReviews from '../../components/StylistReviews/StylistReviews.js';
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
 
 const StylistProfile = () => {
-    const { user, isLoading, isAuthenticated } = useAuth0();
+    const { isLoading } = useAuth0();
     const { id } = useParams();
     const [stylist, setStylist] = useState(null);
     const [reviews, setReviews] = useState([]);
@@ -40,36 +44,41 @@ const StylistProfile = () => {
     }, [id]);
 
     if (isLoading || !stylist) {
-        return <div>Loading...</div>;
+        return (
+            <div>
+                <Loader backdrop content="loading..." vertical />
+            </div>
+        );
     }
 
     return (
         <section>
             {stylist && (
-                <>
-                    <h1>{stylist.fields.Name}</h1>
-                    <p>{stylist.fields.Bio}</p>
-                    <p>{stylist.fields.Contact}</p>
-                </>
+                <FlexboxGrid>
+                    <FlexboxGrid.Item colspan={11}>
+                        <Panel shaded bordered className='Panel'>
+                        <h1>{stylist.fields.Name}</h1>
+                            <Divider />
+                            <p>{stylist.fields.Bio}</p>
+                        </Panel>
+                    </FlexboxGrid.Item>
+                    <FlexboxGrid.Item colspan={13} className='img-container'>
+                        <div className='img-wrapper'>
+                            <img className='profile-img' src={`${stylist.fields.Image}`} alt="Profile-Banner" />
+                        </div>
+                    </FlexboxGrid.Item>
+
+                </FlexboxGrid>
             )}
-            <h2>Reviews</h2>
-            <AddReviewForm stylistId={id} />
-            {reviews.map((review) => (
-                <div key={review.id}>
-                    <p>Review ID: {review.id}</p>
-                    <p>User: {review.Name}</p>
-                    <p>Rating: {review.Rating}</p>
-                    <p>Comment: {review.Comment}</p>
-                    <p>Owner: {review.Owner}</p>
-                    {isAuthenticated && review.Owner === user?.sub && (
-                        <Link 
-                        review={review} 
-                        stylist={stylist} 
-                        key={stylist.id} 
-                        to={`/reviews/${review.id}/edit/${id}`}><button>Edit</button></Link>
-                    )}
-                </div>
-            ))}
+
+            <FlexboxGrid className='Reviews'>
+                <FlexboxGrid.Item colspan={11}>
+                    <StylistReviews reviews={reviews} />
+                </FlexboxGrid.Item>
+                <FlexboxGrid.Item colspan={13}>
+                    <AddReviewForm stylistId={id} />
+                </FlexboxGrid.Item>
+            </FlexboxGrid>
         </section>
     );
 };

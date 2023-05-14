@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import Airtable from 'airtable';
+import 'rsuite/dist/rsuite-no-reset.min.css';
+import './AddReviewForm.css'
+import { Form, Button, Input, Rate, FlexboxGrid } from 'rsuite';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import Airtable from 'airtable';
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(
   process.env.REACT_APP_AIRTABLE_BASE_ID
@@ -15,7 +18,7 @@ const ReviewForm = () => {
   const { id } = useParams();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     try {
       await base('reviews').create(
@@ -45,23 +48,34 @@ const ReviewForm = () => {
   return (
     <>
       {isAuthenticated ? (
-        <form onSubmit={handleSubmit}>
-          <h2>user: {user.name}</h2>
+        <Form onSubmit={handleSubmit} className='Form'>
           <h3>Add a Review</h3>
-          <div>
-            <label htmlFor="name">Name:</label>
-            <input type="string" id="name" value={name} onChange={(e) => setName(e.target.value)} />
-          </div>
-          <div>
-            <label htmlFor="rating">Rating:</label>
-            <input type="number" id="rating" value={rating} onChange={(e) => setRating(e.target.value)} />
-          </div>
-          <div>
-            <label htmlFor="comment">Comment:</label>
-            <textarea id="comment" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+          <FlexboxGrid className='add-form'>
+            <FlexboxGrid.Item colspan={10} className='add-name'>
+
+              <Form.Group controlId="name">
+                <Form.ControlLabel>Name:</Form.ControlLabel>
+                <Input type="text" value={name} onChange={(value) => setName(value)} />
+              </Form.Group>
+            </FlexboxGrid.Item>
+            
+            <FlexboxGrid.Item colspan={10}>
+              <Form.Group controlId="rating">
+                <Form.ControlLabel>Rating:</Form.ControlLabel>
+                <Rate value={rating} onChange={(value) => setRating(value)} />
+              </Form.Group>
+            </FlexboxGrid.Item>
+          </FlexboxGrid>
+
+          <Form.Group controlId="comment">
+            <Form.ControlLabel>Comment:</Form.ControlLabel>
+            <Input name="textarea" value={comment} onChange={(value) => setComment(value)} />
+          </Form.Group>
+
+          <Button appearance="primary" type="submit">Submit</Button>
+        </Form>
+
+
       ) : (
         <h3>Please log in to leave a review.</h3>
       )}

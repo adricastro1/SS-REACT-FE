@@ -1,29 +1,26 @@
+import 'rsuite/dist/rsuite-no-reset.min.css';
 import './Nav.css'
-import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FaBars, FaTimes } from "react-icons/fa"
+import { Navbar, Nav, Button, ButtonToolbar } from 'rsuite';
+
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 
+
 function Header() {
-
-    const navRef = useRef();
-    const showNavbar = () => {
-        navRef.current.classList.toggle("responsive-nav")
-    }
-
     return (
-        <header className='Navbar'>
-            <nav ref={navRef}>
-                <Link to="/" onClick={() => showNavbar()}>Home</Link>
-                <LoginButton />
-                <LogoutButton />
-                <button className='nav-btn nav-close-btn' onClick={showNavbar}><FaTimes /></button>
-            </nav>
-            <button className='nav-btn' onClick={showNavbar}>
-                <FaBars />
-            </button>
-        </header>
+            <Nav className='Nav'>
+                <Nav.Item>
+                    <Link to="/" className='home-link'>Sofia's Styling</Link>
+                </Nav.Item>
+                <div className='nav-right'>
+                <Nav.Item>
+                    <Link to="/" className='home-link'>Contact Us</Link>
+                </Nav.Item>
+                    <LoginButton />
+                    <LogoutButton />
+                </div>
+            </Nav>
     );
 }
 

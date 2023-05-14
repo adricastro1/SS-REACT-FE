@@ -1,0 +1,28 @@
+.Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f4f4f4;
+    transition: transform 0.2s;
+}
+
+.Card>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Card:hover {
+    transform: scale(1.05);
+}
+
+.Card-link, .Card-link:hover {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer;
+  }
+  

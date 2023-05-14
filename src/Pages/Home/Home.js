@@ -1,8 +1,10 @@
+import 'rsuite/dist/rsuite-no-reset.min.css';
 import './Home.css'
-import Airtable from 'airtable';
 import { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react'
-import Stylist from '../../components/Stylist/Stylist'
+import { Row, Col, Loader, Message } from 'rsuite';
+import Airtable from 'airtable';
+import Card from '../../components/Stylist/Stylist'
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID)
 
@@ -25,15 +27,25 @@ function Home() {
     const { isLoading } = useAuth0();
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <div className='Card'>
+                <Loader backdrop content="loading..." vertical />
+            </div>
+        );
     }
 
     return (
-        <section className="Home">
-            <h1>Welcome</h1>
-            {stylists.map((stylist) => (
-                <Stylist stylist={stylist} key={stylist.id}/>
-            ))}
+        <section className='Home'>
+            <img src={process.env.PUBLIC_URL + '/imgs/banner.png'} alt="Banner" />
+            <Message className='Message'>
+Seeking styling assistance for an upcoming event? Want to upgrade your wardrobe? Book a session with a stylist and start transforming your look! Our experts will ensure you shine at any occasion while helping you discover your unique style. Pick a stylist below to get started!</Message>
+            <Row className='Row'>
+                {stylists.map((stylist) => (
+                    <Col className='Home-card' md={8} sm={12} key={stylist.id}>
+                        <Card stylist={stylist} />
+                    </Col>
+                ))}
+            </Row>
         </section>
     );
 }

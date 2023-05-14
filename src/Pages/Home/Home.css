@@ -1,3 +1,30 @@
 .Home {
-    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Row {
+    width: 80%;
+    display: flex;
+    gap: 45px;
+}
+
+.Home img {
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.Message {
+    width: 75%;
+    margin: 30px;
+    box-shadow: 3px 3px 10px #828282;
+}
+
+.Message div {
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: .5em;
+    font-size: 1.1em;
 }
