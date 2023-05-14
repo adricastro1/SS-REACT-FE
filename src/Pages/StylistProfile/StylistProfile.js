@@ -72,10 +72,10 @@ const StylistProfile = () => {
             )}
 
             <FlexboxGrid className='Reviews'>
-                <FlexboxGrid.Item colspan={12}>
+                <FlexboxGrid.Item colspan={11}>
                     <StylistReviews reviews={reviews} />
                 </FlexboxGrid.Item>
-                <FlexboxGrid.Item colspan={12}>
+                <FlexboxGrid.Item colspan={13}>
                     <AddReviewForm stylistId={id} />
                 </FlexboxGrid.Item>
             </FlexboxGrid>
