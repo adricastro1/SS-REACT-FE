@@ -1,16 +1,17 @@
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import './StylistProfile.css'
-import { Loader, Button, FlexboxGrid, Panel, Divider, List } from 'rsuite';
+import { Loader, FlexboxGrid, Panel, Divider } from 'rsuite';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Airtable from 'airtable';
 import AddReviewForm from "../../components/ReviewForm/AddReviewForm"
+import StylistReviews from '../../components/StylistReviews.js';
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
 
 const StylistProfile = () => {
-    const { user, isLoading, isAuthenticated } = useAuth0();
+    const { isLoading } = useAuth0();
     const { id } = useParams();
     const [stylist, setStylist] = useState(null);
     const [reviews, setReviews] = useState([]);
@@ -56,7 +57,7 @@ const StylistProfile = () => {
                 <FlexboxGrid>
                     <FlexboxGrid.Item colspan={13} >
                         <h1 className='Name'>{stylist.fields.Name}</h1>
-                        <img className='profile-img' src={process.env.PUBLIC_URL + `${stylist.fields.Image}`} alt="Profile-Banner" />
+                        <img className='profile-img' src={`${stylist.fields.Image}`} alt="Profile-Banner" />
                     </FlexboxGrid.Item>
                     <FlexboxGrid.Item colspan={10}>
                         <Panel shaded bordered className='Panel' header="title goes here">
@@ -70,26 +71,7 @@ const StylistProfile = () => {
 
             <FlexboxGrid className='Reviews'>
                 <FlexboxGrid.Item colspan={12}>
-                    <Panel header="Reviews">
-                        <List size="md">
-                            {reviews.map((review) => (
-                                <List.Item key={review.id}>
-                                    <div className='reviews-flex'>
-                                        <p>{review.Name}</p>
-                                        <p>Rating: {review.Rating}</p>
-                                    </div>
-                                    <p>Comment: {review.Comment}</p>
-                                    {isAuthenticated && review.Owner === user?.sub && (
-                                        <Link
-                                            review={review}
-                                            stylist={stylist}
-                                            key={stylist.id}
-                                            to={`/reviews/${review.id}/edit/${id}`}><Button>Edit</Button></Link>
-                                    )}
-                                </List.Item>
-                            ))}
-                        </List>
-                    </Panel>
+                    <StylistReviews reviews={reviews}/>
                 </FlexboxGrid.Item>
                 <FlexboxGrid.Item colspan={12}>
                     <AddReviewForm stylistId={id} />
