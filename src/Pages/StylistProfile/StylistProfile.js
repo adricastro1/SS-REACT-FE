@@ -56,10 +56,10 @@ const StylistProfile = () => {
             {stylist && (
                 <FlexboxGrid>
                     <FlexboxGrid.Item colspan={11}>
-                        <Panel shaded bordered className='Panel' header={stylist.fields.Name}>
+                        <Panel shaded bordered className='Panel'>
+                        <h1>{stylist.fields.Name}</h1>
                             <Divider />
                             <p>{stylist.fields.Bio}</p>
-                            <p>{stylist.fields.Contact}</p>
                         </Panel>
                     </FlexboxGrid.Item>
                     <FlexboxGrid.Item colspan={13} className='img-container'>
