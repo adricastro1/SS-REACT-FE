@@ -2,7 +2,7 @@ import 'rsuite/dist/rsuite-no-reset.min.css';
 import './EditReview.css'
 import { Form, Button, Input, Rate, FlexboxGrid, Panel } from 'rsuite';
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Airtable from "airtable";
 
@@ -78,8 +78,8 @@ const EditReviewForm = () => {
     return (
         isAuthenticated && (
             <Panel shaded className='Panel EditReview'>
-                <Form onSubmit={handleSubmit} className='Form'>
-                    <h3 className='title'>Add a Review</h3>
+                <Form onSubmit={handleSubmit} className='Form-Edit'>
+                    <h3 className='title'>Edit Review</h3>
                     <FlexboxGrid className='add-form'>
                         <FlexboxGrid.Item colspan={10} className='add-name'>
                             <Form.Group controlId="name">
@@ -101,7 +101,12 @@ const EditReviewForm = () => {
                         <Input as="textarea" rows={3} value={comment} onChange={(value) => setComment(value)} />
                     </Form.Group>
 
-                    <Button appearance="primary" type="submit">Submit</Button>
+                    <Button appearance="primary" type="submit">Save</Button>
+                    <Link
+                                to={`/stylists/${stylistId}`}
+                            >
+                                <Button color="yellow" appearance="primary" className='btn-right'>Cancel</Button>
+                            </Link>
                 </Form>
             </Panel>
         )
