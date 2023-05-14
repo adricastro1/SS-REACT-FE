@@ -1,0 +1,28 @@
+.Reviews {
+    margin-top: 50px;
+    font-size: 1.2em;
+}
+
+.reviews-flex {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.reviews-flex > p {
+    margin: 0;
+}
+
+.rs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: none;
+}
+
+.rs-list-item {
+    padding: 30px;
+    border-radius: 1em;
+    background-color: #f4f4f488;
+}

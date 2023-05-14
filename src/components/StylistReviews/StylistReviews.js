@@ -1,4 +1,5 @@
 import 'rsuite/dist/rsuite-no-reset.min.css';
+import './StylistReviews.css'
 import { Button, Panel, List } from 'rsuite';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";

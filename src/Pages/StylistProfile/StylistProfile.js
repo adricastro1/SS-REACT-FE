@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Airtable from 'airtable';
 import AddReviewForm from "../../components/ReviewForm/AddReviewForm"
-import StylistReviews from '../../components/StylistReviews.js';
+import StylistReviews from '../../components/StylistReviews/StylistReviews.js';
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
 
@@ -55,23 +55,25 @@ const StylistProfile = () => {
         <section>
             {stylist && (
                 <FlexboxGrid>
-                    <FlexboxGrid.Item colspan={13} >
-                        <h1 className='Name'>{stylist.fields.Name}</h1>
-                        <img className='profile-img' src={`${stylist.fields.Image}`} alt="Profile-Banner" />
-                    </FlexboxGrid.Item>
-                    <FlexboxGrid.Item colspan={10}>
-                        <Panel shaded bordered className='Panel' header="title goes here">
+                    <FlexboxGrid.Item colspan={11}>
+                        <Panel shaded bordered className='Panel' header={stylist.fields.Name}>
                             <Divider />
                             <p>{stylist.fields.Bio}</p>
                             <p>{stylist.fields.Contact}</p>
                         </Panel>
                     </FlexboxGrid.Item>
+                    <FlexboxGrid.Item colspan={13} className='img-container'>
+                        <div className='img-wrapper'>
+                            <img className='profile-img' src={`${stylist.fields.Image}`} alt="Profile-Banner" />
+                        </div>
+                    </FlexboxGrid.Item>
+
                 </FlexboxGrid>
             )}
 
             <FlexboxGrid className='Reviews'>
                 <FlexboxGrid.Item colspan={12}>
-                    <StylistReviews reviews={reviews}/>
+                    <StylistReviews reviews={reviews} />
                 </FlexboxGrid.Item>
                 <FlexboxGrid.Item colspan={12}>
                     <AddReviewForm stylistId={id} />
