@@ -30,7 +30,8 @@ function StylistReviews({ reviews }) {
 
 
     return (
-        <Panel header="Reviews">
+        <Panel>
+        <h3 className='title reviews-title'>Reviews</h3>
             <List size="md">
                 {reviews.map((review) => (
                     <List.Item key={review.id}>
@@ -46,7 +47,7 @@ function StylistReviews({ reviews }) {
                                 key={stylist.id}
                                 to={`/reviews/${review.id}/edit/${id}`}
                             >
-                                <Button>Edit</Button>
+                                <Button color="cyan" appearance="primary" >Edit</Button>
                             </Link>
                         )}
                     </List.Item>

@@ -1,3 +1,6 @@
 main {
-    padding: 50px 100px;
+    padding: 30px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

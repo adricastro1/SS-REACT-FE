@@ -36,12 +36,12 @@ function Home() {
 
     return (
         <section className='Home'>
-            <img src={process.env.PUBLIC_URL + '/imgs/banner.png'} alt="Banner" />
+            <img src={process.env.PUBLIC_URL + '/imgs/banner-1.png'} alt="Banner" />
             <Message className='Message'>
 Seeking styling assistance for an upcoming event? Want to upgrade your wardrobe? Book a session with a stylist and start transforming your look! Our experts will ensure you shine at any occasion while helping you discover your unique style. Pick a stylist below to get started!</Message>
             <Row className='Row'>
                 {stylists.map((stylist) => (
-                    <Col className='Home-card' md={8} sm={12} key={stylist.id}>
+                    <Col className='Home-card' md={12}  key={stylist.id}>
                         <Card stylist={stylist} />
                     </Col>
                 ))}

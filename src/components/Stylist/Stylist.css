@@ -26,3 +26,7 @@
     cursor: pointer;
   }
   
+.name-home {
+    font-family: 'Aboreto', cursive;
+    font-size: 1.5em;
+}

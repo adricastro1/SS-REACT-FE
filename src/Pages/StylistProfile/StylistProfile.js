@@ -8,6 +8,7 @@ import Airtable from 'airtable';
 import AddReviewForm from "../../components/ReviewForm/AddReviewForm"
 import StylistReviews from '../../components/StylistReviews/StylistReviews.js';
 
+
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
 
 const StylistProfile = () => {
@@ -25,18 +26,19 @@ const StylistProfile = () => {
         }
     };
 
-    const getReviews = async () => {
-        try {
-            const response = await base("reviews").select({ view: "Grid view" }).all();
-            const filteredReviews = response.filter(record => {
-                const stylistIds = record.get("Stylists") || [];
-                return stylistIds.includes(id);
-            });
-            setReviews(filteredReviews.map(record => ({ id: record.id, ...record.fields })));
-        } catch (error) {
-            console.error(error);
-        }
-    };
+const getReviews = async () => {
+  try {
+    const response = await base("reviews").select({ view: "Grid view" }).all();
+    const filteredReviews = response.filter((record) => {
+      const stylistIds = record.get("Stylists") || [];
+      return stylistIds.includes(id);
+    });
+    setReviews(filteredReviews.map((record) => ({ id: record.id, ...record.fields })));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 
     useEffect(() => {
         getReviews();
@@ -57,11 +59,13 @@ const StylistProfile = () => {
                 <FlexboxGrid>
                     <FlexboxGrid.Item colspan={11}>
                         <Panel shaded bordered className='Panel'>
-                        <h1>{stylist.fields.Name}</h1>
+                        <h2 className='Name'>{stylist.fields.Name}</h2>
                             <Divider />
                             <p>{stylist.fields.Bio}</p>
                         </Panel>
                     </FlexboxGrid.Item>
+
+
                     <FlexboxGrid.Item colspan={13} className='img-container'>
                         <div className='img-wrapper'>
                             <img className='profile-img' src={`${stylist.fields.Image}`} alt="Profile-Banner" />
@@ -73,8 +77,10 @@ const StylistProfile = () => {
 
             <FlexboxGrid className='Reviews'>
                 <FlexboxGrid.Item colspan={11}>
-                    <StylistReviews reviews={reviews} />
+                    <StylistReviews reviews={reviews} stylistId={id} onSubmit={getReviews}/>
                 </FlexboxGrid.Item>
+
+                
                 <FlexboxGrid.Item colspan={13}>
                     <AddReviewForm stylistId={id} />
                 </FlexboxGrid.Item>
