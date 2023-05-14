@@ -1,12 +1,9 @@
-.Navbar {
-  padding: 10px 30px;
-  background-color: #f4f4f4;
-  box-shadow: 3px 3px 10px #909090a2;
-}
-
 .Nav {
+  padding: 10px 90px;
+  box-shadow: 3px 3px 10px #909090a2;
+  background-color: #f4f4f4;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   gap: 20px;
 
@@ -24,7 +21,13 @@
   cursor: pointer;
 }
 
-.Nav > button {
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right > button {
+  margin-left: 20px;
   color: #403f3f;
   font-size: 1.6em;
   background-color: #dad4ce;
