@@ -5,6 +5,9 @@
     padding: 20px;
 }
 
+.Reviews {
+    margin-left: 60px;}
+
 .Name {
     font-family: 'Aboreto', cursive;
 }
@@ -35,4 +38,29 @@
 
 .btn-right {
     margin-left: 20px;
+}
+
+.profile-message {
+    margin: 0 0 40px 40px;
+    box-shadow: 3px 3px 8px #8e8d8d;
+
+}
+
+.profile-message div {
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: .5em;
+    font-size: 1em;
+}
+
+.custom-slider {
+    margin-left: 50px;
+    margin-top: 50px;
+    height: 670px !important;
+    box-shadow: 3px 3px 8px #8e8d8d;
+
+}
+
+.rs-carousel-slider-item {
+    padding: 0 0 50px 0;
 }

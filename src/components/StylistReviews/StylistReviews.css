@@ -15,6 +15,7 @@
 }
 
 .rs-list {
+    margin-left: 150px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -31,7 +32,7 @@
 
   
 .reviews-title {
-    margin: 10px 0 20px 0;
+    margin: 10px 0 20px 150px;
 }
 
 .edit-btn {

@@ -10,7 +10,7 @@ function Card({ props, stylist }) {
     <Link to={`/stylists/${stylist.id}`} className="Card-link">
       <Panel className="Card" {...props} shaded bordered>
         <h3 className='name-home'>{stylist.fields.Name}</h3>
-        <img src={`${stylist.fields.Image}`} alt='profile-img' />
+        <img src={`${stylist.fields.img1}`} alt='profile-img' />
       </Panel>
     </Link>
   )
