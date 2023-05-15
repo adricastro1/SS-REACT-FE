@@ -2,7 +2,7 @@ import 'rsuite/dist/rsuite-no-reset.min.css';
 import './AddReviewForm.css';
 import { Form, Button, Input, Rate, FlexboxGrid } from 'rsuite';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, navigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import Airtable from 'airtable';
 
@@ -34,8 +34,8 @@ const AddReviewForm = () => {
 
       setRating('');
       setComment('');
-
-      window.location.reload();
+      navigate(`/stylists/${stylistId}`)
+      // window.location.reload();
     } catch (error) {
       console.error(error);
     }
