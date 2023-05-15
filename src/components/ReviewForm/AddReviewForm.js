@@ -2,7 +2,7 @@ import 'rsuite/dist/rsuite-no-reset.min.css';
 import './AddReviewForm.css';
 import { Form, Button, Input, Rate, FlexboxGrid } from 'rsuite';
 import { useState } from 'react';
-import { useParams, navigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import Airtable from 'airtable';
 
@@ -16,6 +16,7 @@ const AddReviewForm = () => {
   const [rating, setRating] = useState('');
   const [comment, setComment] = useState('');
   const { id } = useParams();
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     // e.preventDefault();
@@ -34,7 +35,7 @@ const AddReviewForm = () => {
 
       setRating('');
       setComment('');
-      navigate(`/stylists/${stylistId}`)
+      navigate(`/stylists/${id}`)
       // window.location.reload();
     } catch (error) {
       console.error(error);
