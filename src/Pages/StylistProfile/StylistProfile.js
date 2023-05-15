@@ -1,6 +1,6 @@
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import './StylistProfile.css'
-import { Loader, FlexboxGrid, Panel, Divider } from 'rsuite';
+import { Loader, FlexboxGrid, Panel, Divider, Message } from 'rsuite';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -67,6 +67,7 @@ const getReviews = async () => {
 
 
                     <FlexboxGrid.Item colspan={13} className='img-container'>
+                    <Message>Ready to elevate your style? Reach out to us directly to set up a consultation with your preferred stylist. We're excited to help you create a personalized look that reflects your unique personality and meets your fashion goals. Contact us now to schedule your appointment and begin your style transformation.</Message>
                         <div className='img-wrapper'>
                             <img className='profile-img' src={`${stylist.fields.Image}`} alt="Profile-Banner" />
                         </div>

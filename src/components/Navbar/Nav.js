@@ -15,7 +15,7 @@ function Header() {
                 </Nav.Item>
                 <div className='nav-right'>
                 <Nav.Item>
-                    <Link to="/" className='home-link'>Contact Us</Link>
+                    <Link to="/contact"  className='home-link'>Contact Us</Link>
                 </Nav.Item>
                     <LoginButton />
                     <LogoutButton />

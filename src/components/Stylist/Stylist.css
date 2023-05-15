@@ -8,6 +8,10 @@
     transition: transform 0.2s;
 }
 
+
+
+
+
 .Card>div {
     display: flex;
     flex-direction: column;
@@ -20,12 +24,13 @@
     transform: scale(1.05);
 }
 
-.Card-link, .Card-link:hover {
-    text-decoration: none; 
-    color: inherit; 
+.Card-link,
+.Card-link:hover {
+    text-decoration: none;
+    color: inherit;
     cursor: pointer;
-  }
-  
+}
+
 .name-home {
     font-family: 'Aboreto', cursive;
     font-size: 1.5em;
