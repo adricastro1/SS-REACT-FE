@@ -19,7 +19,6 @@ const EditReviewForm = () => {
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
-        // e.preventDefault();
 
         try {
             await base("Reviews").update([
@@ -43,9 +42,7 @@ const EditReviewForm = () => {
         }
     };
 
-    const handleDelete = async (e) => {
-        e.preventDefault();
-
+    const handleDelete = async () => {
         try {
             await base("Reviews").destroy(id);
             navigate(`/stylists/${stylistId}`);
@@ -54,6 +51,8 @@ const EditReviewForm = () => {
             navigate(`/stylists/${stylistId}`);
         }
     };
+
+
 
     const fetchReviewData = async () => {
         try {
@@ -100,13 +99,18 @@ const EditReviewForm = () => {
                         <Form.ControlLabel>Comment:</Form.ControlLabel>
                         <Input as="textarea" rows={3} value={comment} onChange={(value) => setComment(value)} />
                     </Form.Group>
-
-                    <Button appearance="primary" type="submit">Save</Button>
-                    <Link
-                                to={`/stylists/${stylistId}`}
-                            >
-                                <Button color="yellow" appearance="primary" className='btn-right'>Cancel</Button>
-                            </Link>
+                    <section className='review-btns'>
+                    <div>
+                        <Button appearance="primary" type="submit">Save</Button>
+                        <Button color="red" appearance="primary" className='btn-right' onClick={handleDelete}>
+                            Delete
+                        </Button>
+                    </div>
+                        <Link
+                            to={`/stylists/${stylistId}`}>
+                            <Button color="yellow" appearance="primary" className='btn-right'>Cancel</Button>
+                        </Link>
+                    </section>
                 </Form>
             </Panel>
         )

@@ -3,3 +3,7 @@
     padding: 60px;
 }
 
+.review-btns {
+    display: flex;
+    justify-content: space-between;
+}
