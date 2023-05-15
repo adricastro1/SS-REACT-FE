@@ -83,12 +83,12 @@ const StylistProfile = () => {
             <FlexboxGrid >
                 <FlexboxGrid.Item colspan={10}>
                     <Carousel autoplay className="custom-slider">
-                        <img src={`${stylist.fields.img1}`} alt="Banner"  />
-                        <img src={`${stylist.fields.img2}`}  />
-                        <img src={`${stylist.fields.img3}`}  />
-                        <img src={`${stylist.fields.img4}`}  />
-                        <img src={`${stylist.fields.img5}`}  />
-                             </Carousel>
+                        <img src={`${stylist.fields.img1}`} alt="carousel-img" />
+                        <img src={`${stylist.fields.img2}`} alt="carousel-img" />
+                        <img src={`${stylist.fields.img3}`} alt="carousel-img" />
+                        <img src={`${stylist.fields.img4}`} alt="carousel-img" />
+                        <img src={`${stylist.fields.img5}`} alt="carousel-img" />
+                    </Carousel>
                 </FlexboxGrid.Item>
 
 

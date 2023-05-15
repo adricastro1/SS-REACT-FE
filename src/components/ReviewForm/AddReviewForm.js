@@ -35,8 +35,8 @@ const AddReviewForm = () => {
 
       setRating('');
       setComment('');
-      navigate(`/stylists/${id}`)
-      // window.location.reload();
+      // navigate(`/stylists/${id}`)
+      navigate(`/`)
     } catch (error) {
       console.error(error);
     }
