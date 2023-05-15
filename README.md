@@ -5,8 +5,8 @@
 A personal Stylist service app. Users can view stylist’s profiles and leave reviews.
 
 ## Screenshots:
-<img src="public/imgs/home.png" alt="Home" width="50%" height="50%">
-<img src="public/imgs/profile.png" alt="Profile" width="50%" height="50%">
+<img src="./public/imgs/home.png" alt="Home" width="50%" height="50%">
+<img src="./public/imgs/profile.png" alt="Profile" width="50%" height="50%">
 
 ## Technologies Used:
 - React
