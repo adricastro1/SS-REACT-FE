@@ -36,3 +36,14 @@
 .btn-right {
     margin-left: 20px;
 }
+
+.profile-message {
+    margin: 0 0 20px 40px;
+}
+
+.profile-message div {
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: .5em;
+    font-size: 1em;
+}

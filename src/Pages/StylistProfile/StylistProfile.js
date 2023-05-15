@@ -26,18 +26,18 @@ const StylistProfile = () => {
         }
     };
 
-const getReviews = async () => {
-  try {
-    const response = await base("reviews").select({ view: "Grid view" }).all();
-    const filteredReviews = response.filter((record) => {
-      const stylistIds = record.get("Stylists") || [];
-      return stylistIds.includes(id);
-    });
-    setReviews(filteredReviews.map((record) => ({ id: record.id, ...record.fields })));
-  } catch (error) {
-    console.error(error);
-  }
-};
+    const getReviews = async () => {
+        try {
+            const response = await base("reviews").select({ view: "Grid view" }).all();
+            const filteredReviews = response.filter((record) => {
+                const stylistIds = record.get("Stylists") || [];
+                return stylistIds.includes(id);
+            });
+            setReviews(filteredReviews.map((record) => ({ id: record.id, ...record.fields })));
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
 
     useEffect(() => {
@@ -59,7 +59,8 @@ const getReviews = async () => {
                 <FlexboxGrid>
                     <FlexboxGrid.Item colspan={11}>
                         <Panel shaded bordered className='Panel'>
-                        <h2 className='Name'>{stylist.fields.Name}</h2>
+                            <h1 className='Name'>{stylist.fields.Name}</h1>
+                            <p>{stylist.fields.Contact}</p>
                             <Divider />
                             <p>{stylist.fields.Bio}</p>
                         </Panel>
@@ -67,10 +68,12 @@ const getReviews = async () => {
 
 
                     <FlexboxGrid.Item colspan={13} className='img-container'>
-                    <Message>Ready to elevate your style? Reach out to us directly to set up a consultation with your preferred stylist. We're excited to help you create a personalized look that reflects your unique personality and meets your fashion goals. Contact us now to schedule your appointment and begin your style transformation.</Message>
-                        <div className='img-wrapper'>
-                            <img className='profile-img' src={`${stylist.fields.Image}`} alt="Profile-Banner" />
-                        </div>
+                        <section>
+                            <Message className='profile-message'>Ready to elevate your style? Reach out to us directly to set up a consultation with your preferred stylist. We're excited to help you create a personalized look that reflects your unique personality and meets your fashion goals. Contact us now to schedule your appointment and begin your style transformation.</Message>
+                            <div className='img-wrapper'>
+                                <img className='profile-img' src={`${stylist.fields.Image}`} alt="Profile-Banner" />
+                            </div>
+                        </section>
                     </FlexboxGrid.Item>
 
                 </FlexboxGrid>
@@ -78,10 +81,10 @@ const getReviews = async () => {
 
             <FlexboxGrid className='Reviews'>
                 <FlexboxGrid.Item colspan={11}>
-                    <StylistReviews reviews={reviews} stylistId={id} onSubmit={getReviews}/>
+                    <StylistReviews reviews={reviews} stylistId={id} onSubmit={getReviews} />
                 </FlexboxGrid.Item>
 
-                
+
                 <FlexboxGrid.Item colspan={13}>
                     <AddReviewForm stylistId={id} />
                 </FlexboxGrid.Item>
