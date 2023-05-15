@@ -49,7 +49,7 @@ const AddReviewForm = () => {
     <>
       {isAuthenticated ? (
         <Form onSubmit={handleSubmit} className='Form-Add'>
-          <h3 className='title'>Add a Review</h3>
+          <h4 className='title'>Add a Review</h4>
           <FlexboxGrid className='add-form'>
             <FlexboxGrid.Item colspan={13} className='add-name'>
               <Form.Group controlId="name">

@@ -31,15 +31,15 @@ function StylistReviews({ reviews }) {
 
     return (
         <Panel>
-        <h3 className='title reviews-title'>Reviews</h3>
+        <h4 className='title reviews-title'>Client Reviews</h4>
             <List size="md">
                 {reviews.map((review) => (
                     <List.Item key={review.id}>
                         <div className='reviews-flex'>
-                            <p>{review.Name}</p>
+                            <p className='user-name'>{review.Name}</p>
                             <Rate readOnly value={review.Rating} size="sm" />
                         </div>
-                        <p>Comment: {review.Comment}</p>
+                        <p>{review.Comment}</p>
                         {isAuthenticated && review.Owner === user?.sub && stylist && (
                             <Link
                                 review={review}
@@ -47,7 +47,7 @@ function StylistReviews({ reviews }) {
                                 key={stylist.id}
                                 to={`/reviews/${review.id}/edit/${id}`}
                             >
-                                <Button color="cyan" appearance="primary" >Edit</Button>
+                                <Button color="cyan" appearance="primary" className='edit-btn'>Edit</Button>
                             </Link>
                         )}
                     </List.Item>
