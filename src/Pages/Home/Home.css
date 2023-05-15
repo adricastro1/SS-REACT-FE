@@ -13,12 +13,12 @@
 
 .Home img {
     margin-bottom: 10px;
-    width: 90%;
+    width: 96%;
 }
 
 .Message {
     width: 82%;
-    margin: 30px;
+    margin-top: 10px;
     box-shadow: 3px 3px 10px #828282;
 }
 

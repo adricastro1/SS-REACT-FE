@@ -1,12 +1,13 @@
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import './StylistProfile.css'
-import { Loader, FlexboxGrid, Panel, Divider, Message } from 'rsuite';
+import { Loader, FlexboxGrid, Panel, Divider, Message, Carousel } from 'rsuite';
 import { useAuth0 } from "@auth0/auth0-react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Airtable from 'airtable';
 import AddReviewForm from "../../components/ReviewForm/AddReviewForm"
 import StylistReviews from '../../components/StylistReviews/StylistReviews.js';
+// import ImageCarousel from '../../components/Carousel/ImageCarousel'
 
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
@@ -69,7 +70,7 @@ const StylistProfile = () => {
 
                     <FlexboxGrid.Item colspan={13} className='img-container'>
                         <section>
-                            <Message className='profile-message'>Ready to elevate your style? Reach out to us directly to set up a consultation with your preferred stylist. We're excited to help you create a personalized look that reflects your unique personality and meets your fashion goals. Contact us now to schedule your appointment and begin your style transformation.</Message>
+                            <Message className='profile-message'>Contact us now to set up a consultation with your preferred stylist and elevate your style. Create a personalized look that reflects your unique personality and fashion goals. Schedule your appointment for a style transformation.</Message>
                             <div className='img-wrapper'>
                                 <img className='profile-img' src={`${stylist.fields.Image}`} alt="Profile-Banner" />
                             </div>
@@ -79,14 +80,21 @@ const StylistProfile = () => {
                 </FlexboxGrid>
             )}
 
-            <FlexboxGrid className='Reviews'>
-                <FlexboxGrid.Item colspan={11}>
-                    <StylistReviews reviews={reviews} stylistId={id} onSubmit={getReviews} />
+            <FlexboxGrid >
+                <FlexboxGrid.Item colspan={10}>
+                    <Carousel autoplay className="custom-slider">
+                        <img src={`${stylist.fields.img1}`} alt="Banner"  />
+                        <img src={`${stylist.fields.img2}`}  />
+                        <img src={`${stylist.fields.img3}`}  />
+                        <img src={`${stylist.fields.img4}`}  />
+                        <img src={`${stylist.fields.img5}`}  />
+                             </Carousel>
                 </FlexboxGrid.Item>
 
 
                 <FlexboxGrid.Item colspan={13}>
                     <AddReviewForm stylistId={id} />
+                    <StylistReviews reviews={reviews} id={id} onSubmit={getReviews} className='Reviews' />
                 </FlexboxGrid.Item>
             </FlexboxGrid>
         </section>
