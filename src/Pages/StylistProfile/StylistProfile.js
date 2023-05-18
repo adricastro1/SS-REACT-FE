@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 import Airtable from 'airtable';
 import AddReviewForm from "../../components/ReviewForm/AddReviewForm"
 import StylistReviews from '../../components/StylistReviews/StylistReviews.js';
-// import ImageCarousel from '../../components/Carousel/ImageCarousel'
 
 
 const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).base(process.env.REACT_APP_AIRTABLE_BASE_ID);
