@@ -1,3 +1,7 @@
+.Profile{
+    padding: 0 80px;
+}
+
 .Panel {
     background-color: #f4f4f4;
     font-size: 1.3em;
@@ -51,14 +55,14 @@
     text-align: center;
     background-color: #f4f4f4;
     border-radius: .5em;
-    font-size: 1em;
+    font-size: 1.07em;
 }
 
 .custom-slider {
-    margin-left: 50px;
-    margin-top: 50px;
+    margin-left: 80px;
+    margin-top: 20px;
     height: 670px !important;
-    width: auto;
+    width: 450px;
     box-shadow: 3px 3px 8px #8e8d8d;
 
 }
@@ -79,6 +83,10 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .Profile{
+        padding: 0;
+    }
+    
     .Panel {
         padding: 15px;
         font-size: 1em;
