@@ -20,7 +20,7 @@ function Header() {
     const navClass = isNavOpen ? 'block' : 'hidden';
 
     return (
-        <header className="flex items-center justify-between px-8 py-2 shadow-md bg-gray-100">
+        <header className="flex items-center justify-between px-8 py-4 shadow-md bg-gray-100">
             <nav ref={navRef} className="w-full md:w-auto flex-grow" >
                 <div className="flex items-center justify-between w-full flex-grow">
                         <div>

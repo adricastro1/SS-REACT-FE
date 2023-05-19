@@ -38,9 +38,15 @@
     font-size: 1.3em;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1067px) {
+@media screen and (min-width: 1024px) and (max-width: 1100px) {
     .name-home {
-        font-size: 1.2em;
+        font-size: 1.1em;
+    }
+  }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .name-home {
+        font-size: 2em;
     }
   }
   
@@ -48,6 +54,6 @@
   
   @media screen and (max-width: 767px) {
     .name-home {
-        font-size: 1em;
+        font-size: 2em;
     }
   }
