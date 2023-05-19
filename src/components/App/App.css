@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Libre+Baskerville:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 
 
 .App {
@@ -18,4 +22,16 @@
 .title {
   font-weight: 700;
   color: #403f3f;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .App {
+      font-size: .6em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .App {
+      font-size: .6em;
+  }
 }

@@ -1,59 +1,59 @@
 import './ContactForm.css'
 import { Form, Button, Input, FlexboxGrid, Panel } from 'rsuite';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import emailjs from 'emailjs-com';
 
 export default function Mail() {
-    const form = useRef();
+  const form = useRef();
 
-    const sendEmail = async (e) => {
-        e.preventDefault();
+  const sendEmail = async (e) => {
+    // e.preventDefault();
 
-        const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-        const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-        const USER_ID = process.env.REACT_APP_EMAILJS_USER_ID;
+    const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const USER_ID = process.env.REACT_APP_EMAILJS_USER_ID;
 
-        try {
-            const result = await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID);
-            form.current.reset();
-        } catch (error) {
-            console.log('Error sending email:', error);
-        }
-    };
+    try {
+      const result = await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID);
+      console.log(result.text);
+    } catch (error) {
+      console.log('Error sending email:', error);
+    }
+  };
 
-    const validateEmail = (email) => {
-        const re = /\S+@\S+\.\S+/;
-        return re.test(email);
-    };
+  const validateEmail = (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const nameInput = e.target.elements['user_name'];
-        const emailInput = e.target.elements['user_email'];
-        const messageInput = e.target.elements['message'];
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    const nameInput = form.current.elements['user_name'];
+    const emailInput = form.current.elements['user_email'];
+    const messageInput = form.current.elements['message'];
+    
+    if (!nameInput.value.trim()) {
+      alert('Please enter your name.');
+      return;
+    }
 
-        if (!nameInput.value.trim()) {
-            alert('Please enter your name.');
-            return;
-        }
+    if (!emailInput.value.trim()) {
+      alert('Please enter your email address.');
+      return;
+    }
 
-        if (!emailInput.value.trim()) {
-            alert('Please enter your email address.');
-            return;
-        }
+    if (!validateEmail(emailInput.value)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
 
-        if (!validateEmail(emailInput.value)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
+    if (!messageInput.value.trim()) {
+      alert('Please enter a message.');
+      return;
+    }
 
-        if (!messageInput.value.trim()) {
-            alert('Please enter a message.');
-            return;
-        }
-
-        sendEmail(e);
-    };
+    form.current.dispatchEvent(new Event('submit', { cancelable: true }));
+  };
 
     return (
         <Panel shaded className='Panel'>
