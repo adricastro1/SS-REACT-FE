@@ -9,7 +9,7 @@ const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
 function App() {
 
   return (
-    <div className="App w-full h-screen">
+    <div className="App">
       <Auth0Provider
         domain={domain}
         clientId={clientId}

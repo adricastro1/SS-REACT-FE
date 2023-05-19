@@ -6,6 +6,7 @@
     text-align: center;
     background-color: #f4f4f4;
     transition: transform 0.2s;
+    padding: 5px;
 }
 
 
@@ -14,6 +15,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.Card > img {
+    width: 100%;
 }
 
 
@@ -30,5 +35,19 @@
 
 .name-home {
     font-family: 'Aboreto', cursive;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1067px) {
+    .name-home {
+        font-size: 1.2em;
+    }
+  }
+  
+
+  
+  @media screen and (max-width: 767px) {
+    .name-home {
+        font-size: 1em;
+    }
+  }

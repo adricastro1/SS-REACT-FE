@@ -1,0 +1,56 @@
+.Nav {
+    padding: 5px 70px;
+    box-shadow: 3px 3px 10px #909090a2;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+}
+
+
+.home-link,
+.home-link:visited,
+.home-link:active,
+.home-link:focus {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #403f3f;
+    cursor: pointer;
+    font-weight: 700;
+    margin-left: 20px;
+    
+}
+.home-link:hover{
+    color: #686767;
+    text-decoration: none;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right>button {
+    color: #403f3f;
+    font-size: 1.4em;
+    background-color: #dad4ce;
+    box-shadow: 3px 3px 8px #bab9b9;
+}
+
+.home-title,
+.home-title:visited,
+.home-title:active,
+.home-title:focus {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 2.5em;
+    text-decoration: none;
+    color: #403f3f;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.home-title:hover {
+    color: #686767;
+}

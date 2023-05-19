@@ -1,3 +1,4 @@
+import './Nav.css'
 import { useState, useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -19,14 +20,14 @@ function Header() {
     const navClass = isNavOpen ? 'block' : 'hidden';
 
     return (
-        <header className="flex items-center justify-between px-4 py-2 shadow-md bg-gray-100">
+        <header className="flex items-center justify-between px-8 py-2 shadow-md bg-gray-100">
             <nav ref={navRef} className="w-full md:w-auto flex-grow" >
                 <div className="flex items-center justify-between w-full flex-grow">
                         <div>
                             <Link
                                 to="/"
                                 onClick={closeNav}
-                                className="text-4xl font-bold text-gray-800 hover:text-gray-600 no-underline focus:underline focus:no-underline"
+                                className="home-title"
                             >
                                 Sofia's Styling
                             </Link>
@@ -44,11 +45,11 @@ function Header() {
                             <Link
                                 to="/contact"
                                 onClick={closeNav}
-                                className="text-gray-800 hover:text-gray-600 no-underline focus:underline focus:no-underline"
+                                className="home-link"
                             >
                                 Contact Us
                             </Link>
-                            <div>
+                            <div className='authentication'>
                                 <LoginButton />
                                 <LogoutButton />
                             </div>
@@ -59,7 +60,7 @@ function Header() {
                     <Link
                         to="/contact"
                         onClick={closeNav}
-                        className="block mt-4 text-gray-800 hover:text-gray-600"
+                        className="block mt-4 text-gray-800 hover:text-gray-600 font-bold text-lg"
                     >
                         Contact Us
                     </Link>
