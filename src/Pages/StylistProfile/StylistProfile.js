@@ -54,15 +54,15 @@ const StylistProfile = () => {
     }
 
     return (
-        <section>
+        <section className='Profile'>
             {stylist && (
                 <FlexboxGrid>
                     <FlexboxGrid.Item colspan={11}>
                         <Panel shaded bordered className='Panel'>
                             <h1 className='Name'>{stylist.fields.Name}</h1>
-                            <p>{stylist.fields.Contact}</p>
+                            <p className='Profile-Info'>{stylist.fields.Contact}</p>
                             <Divider />
-                            <p>{stylist.fields.Bio}</p>
+                            <p className='Profile-Info'>{stylist.fields.Bio}</p>
                         </Panel>
                     </FlexboxGrid.Item>
 
