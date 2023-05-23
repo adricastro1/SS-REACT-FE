@@ -1,17 +1,113 @@
-.contact-form {
-    width: 800px;
-    margin: 40px 0;
-    padding: 30px;
+.rs-panel {
+    margin-top: 30px;
 }
 
 .contact-message {
     margin-bottom: 40px;
 }
 
-.email {
-    margin-left: 30px;
+form {
+    padding: 20px;
+    margin-top: 20px;
+
 }
 
-.contact-btn {
-    margin-top: 20px;
+.form-top {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 44% 50%;
+    gap: 1.5em;
+    margin-bottom: .5em;
 }
+
+form input {
+    margin-bottom: 10px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+form input[type="submit"] {
+    margin-top: .5em;
+    border: none;
+    border-radius: .5em;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    color: #403f3f;
+    background-color: #dad4ce;
+    box-shadow: 3px 3px 8px #bab9b9;
+}
+
+form input[type="submit"]:hover {
+    background-color: #bfbbb7;
+}
+
+.sent {
+    text-align: center;
+    margin-top: 10px;
+    color: #0b8c12;
+    font-weight: 700;
+    font-size: 1.1em;
+    
+}
+
+@media screen and (max-width: 1023px) {
+
+    .rs-panel {
+        margin: 40px;
+    }
+    
+    .contact-form > h2 {
+        font-size: 2em;
+    }
+    
+    .contact-message {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .form-top {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 0;
+    }
+    
+    .rs-panel {
+        margin: 20px;
+    }
+
+    .rs-input {
+        width: 100%;
+    }
+
+    .contact-form > h2 {
+        font-size: 2em;
+    }
+    
+    .contact-message {
+        margin-bottom: 20px;
+        font-size: 1em;
+    }
+
+  }
