@@ -69,10 +69,6 @@ form input[type="submit"]:hover {
 }
 
 @media screen and (max-width: 1023px) {
-
-    .rs-panel {
-        margin: 40px;
-    }
     
     .contact-form > h2 {
         font-size: 2em;
