@@ -69,8 +69,10 @@ form input[type="submit"]:hover {
 }
 
 @media screen and (max-width: 1023px) {
+
+    .Contact-Form
     
-    .contact-form > h2 {
+    .Contact-Form > h2 {
         font-size: 2em;
     }
     
@@ -81,6 +83,11 @@ form input[type="submit"]:hover {
 
 @media screen and (max-width: 767px) {
 
+    .Contact-Form.rs-panel {
+        margin: 40px;
+    }
+
+
     .form-top {
         width: 100%;
         display: flex;
@@ -89,15 +96,12 @@ form input[type="submit"]:hover {
         margin-bottom: 0;
     }
     
-    .rs-panel {
-        margin: 20px;
-    }
 
     .rs-input {
         width: 100%;
     }
 
-    .contact-form > h2 {
+    .Contact-Form > h2 {
         font-size: 2em;
     }
     

@@ -26,7 +26,7 @@ function Mail() {
 
 
   return (
-    <Panel shaded className='Panel'>
+    <Panel shaded className='Panel Contact-Form'>
       <div>
         <h2>Contact Us</h2>
         <h5 className='contact-message'>Have questions or need more information? Contact us today! For consultation bookings, please include your preferred stylist's name (if any) and the date of your event if applicable. We're here to assist you with all your personal styling needs.</h5>
