@@ -1,6 +1,6 @@
 .Form-Add, .login-message {
     margin-top: 60px;
-    margin-left: 150px;
+    margin-left: 2.5em;
 }
 
 .add-name {
@@ -10,3 +10,20 @@
 .add-form {
     margin: 20px 0;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .Form-Add, .login-message {
+        margin-left: 1.5em;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .Form-Add, .login-message {
+        margin-left: 0;
+    } 
+
+    .login-message {
+        text-align: center;
+    }
+}
+
