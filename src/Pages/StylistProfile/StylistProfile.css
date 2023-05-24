@@ -1,3 +1,7 @@
+.Profile {
+    padding: 0 80px;
+}
+
 .Panel {
     background-color: #f4f4f4;
     font-size: 1.3em;
@@ -11,13 +15,14 @@
 
 .Name {
     font-family: 'Aboreto', cursive;
+    font-size: 2em;
 }
 
 .img-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 52px;
+    margin-top: 30px;
 }
 
 .img-wrapper {
@@ -51,14 +56,20 @@
     text-align: center;
     background-color: #f4f4f4;
     border-radius: .5em;
-    font-size: 1em;
+    font-size: 1.07em;
+}
+
+.Carousel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 .custom-slider {
-    margin-left: 50px;
-    margin-top: 50px;
-    height: 670px !important;
-    width: auto;
+    margin: 0;
+    max-width: 90%;
     box-shadow: 3px 3px 8px #8e8d8d;
 
 }
@@ -74,11 +85,16 @@
 
     .custom-slider {
         margin-left: 10px;
+        max-width: 100%;
     }
 
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .Profile {
+        padding: 0;
+    }
+
     .Panel {
         padding: 15px;
         font-size: 1em;
@@ -96,9 +112,13 @@
         margin: 0 0 30px 30px;
     }
 
+    .profile-message.rs-message {
+        font-size: 1.3em;
+    }
+
     .custom-slider {
-        margin-left: 10px;
-        margin-top: 30px;
+        height: 490px !important;
+        width: 330px;
     }
 
     .Profile-Info {
@@ -112,43 +132,62 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 60px;
+        padding: 20px;
     }
+
     .rs-flex-box-grid {
         display: flex;
         flex-direction: column !important;
-      }
+    }
 
-      .rs-flex-box-grid-top {
+    .rs-flex-box-grid-top {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-      }
+    }
 
     .Panel {
         padding: 15px;
         font-size: 1em;
     }
 
+    .Panel.rs-panel {
+        margin: 0;
+        width: 100%;
+    }
+
+    .rs-flex-box-grid-item-11 {
+        width: 100% !important;
+    }
+    .rs-flex-box-grid-item-13 {
+        width: 100% !important;
+    }
+
+
     .Name {
         font-size: 2.5em;
     }
 
     .profile-img {
-        margin-left: 30px;
+        margin-left: 0;
     }
 
     .profile-message {
-        margin: 0 0 30px 30px;
+        margin: 0 0 20px 0;
     }
 
-    .custom-slider {
-        margin-left: 10px;
-        margin-top: 30px;
+    .profile-message.rs-message {
+        font-size: 1.3em;
     }
 
     .Profile-Info {
         font-size: 1.3em;
+    }
+
+    .custom-slider {
+        height: 490px !important;
+        width: 330px;
+        margin: 0;
     }
 }
