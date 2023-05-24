@@ -31,7 +31,7 @@ function StylistReviews({ reviews }) {
 
     return (
         <Panel>
-        <h4 className='title reviews-title'>Client Reviews</h4>
+            <h4 className='title reviews-title'>Client Reviews</h4>
             <List size="md">
                 {reviews.map((review) => (
                     <List.Item key={review.id}>

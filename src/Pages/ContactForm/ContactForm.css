@@ -9,7 +9,6 @@
 form {
     padding: 20px;
     margin-top: 20px;
-
 }
 
 .form-top {
@@ -65,28 +64,23 @@ form input[type="submit"]:hover {
     color: #0b8c12;
     font-weight: 700;
     font-size: 1.1em;
-    
+
 }
 
 @media screen and (max-width: 1023px) {
-
-    .Contact-Form
-    
-    .Contact-Form > h2 {
+    .Contact-Form .Contact-Form>h2 {
         font-size: 2em;
     }
-    
+
     .contact-message {
         margin-bottom: 20px;
     }
 }
 
 @media screen and (max-width: 767px) {
-
     .Contact-Form.rs-panel {
         margin: 40px;
     }
-
 
     .form-top {
         width: 100%;
@@ -95,19 +89,17 @@ form input[type="submit"]:hover {
         gap: 0;
         margin-bottom: 0;
     }
-    
 
     .rs-input {
         width: 100%;
     }
 
-    .Contact-Form > h2 {
+    .Contact-Form>h2 {
         font-size: 2em;
     }
-    
+
     .contact-message {
         margin-bottom: 20px;
         font-size: 1em;
     }
-
-  }
+}

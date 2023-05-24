@@ -3,7 +3,6 @@ import './Stylist.css'
 import { Panel } from 'rsuite';
 import { Link } from 'react-router-dom'
 
-
 function Card({ props, stylist }) {
 
   return (

@@ -23,21 +23,19 @@ function Header() {
         <header className="flex items-center justify-between px-8 py-4 shadow-md bg-gray-100">
             <nav ref={navRef} className="w-full md:w-auto flex-grow" >
                 <div className="flex items-center justify-between w-full flex-grow">
-                        <div>
-                            <Link
-                                to="/"
-                                onClick={closeNav}
-                                className="home-title"
-                            >
-                                Sofia's Styling
-                            </Link>
-                        </div>
+                    <div>
+                        <Link
+                            to="/"
+                            onClick={closeNav}
+                            className="home-title">
+                            Sofia's Styling
+                        </Link>
+                    </div>
                     <div className="flex items-center text-right">
                         <div className="md:hidden">
                             <button
                                 className="text-gray-800 hover:text-gray-600"
-                                onClick={toggleNav}
-                            >
+                                onClick={toggleNav}>
                                 {isNavOpen ? <FaTimes /> : <FaBars />}
                             </button>
                         </div>
@@ -45,8 +43,7 @@ function Header() {
                             <Link
                                 to="/contact"
                                 onClick={closeNav}
-                                className="home-link"
-                            >
+                                className="home-link">
                                 Contact Us
                             </Link>
                             <div className='authentication'>
@@ -60,8 +57,7 @@ function Header() {
                     <Link
                         to="/contact"
                         onClick={closeNav}
-                        className="block mt-4 text-gray-800 hover:text-gray-600 font-bold text-lg"
-                    >
+                        className="block mt-4 text-gray-800 hover:text-gray-600 font-bold text-lg">
                         Contact Us
                     </Link>
                     <div className="mt-4">

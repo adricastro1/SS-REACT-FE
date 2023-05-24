@@ -9,10 +9,10 @@ main {
     main {
         padding: 10px;
     }
-  }
-  
-  @media screen and (max-width: 767px) {
+}
+
+@media screen and (max-width: 767px) {
     main {
         padding: 5px;
     }
-  }
+}

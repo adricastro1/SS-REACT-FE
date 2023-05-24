@@ -52,8 +52,6 @@ const EditReviewForm = () => {
         }
     };
 
-
-
     const fetchReviewData = async () => {
         try {
             const record = await base("Reviews").find(id);
@@ -100,12 +98,12 @@ const EditReviewForm = () => {
                         <Input as="textarea" rows={3} value={comment} onChange={(value) => setComment(value)} />
                     </Form.Group>
                     <section className='review-btns'>
-                    <div>
-                        <Button appearance="primary" type="submit">Save</Button>
-                        <Button color="red" appearance="primary" className='btn-right' onClick={handleDelete}>
-                            Delete
-                        </Button>
-                    </div>
+                        <div>
+                            <Button appearance="primary" type="submit">Save</Button>
+                            <Button color="red" appearance="primary" className='btn-right' onClick={handleDelete}>
+                                Delete
+                            </Button>
+                        </div>
                         <Link
                             to={`/stylists/${stylistId}`}>
                             <Button color="yellow" appearance="primary" className='btn-right'>Cancel</Button>

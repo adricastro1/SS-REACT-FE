@@ -7,7 +7,11 @@ const LogoutButton = () => {
 
     return (
         isAuthenticated && (
-            <Button className="btn ml-4 text-gray-800 text-lg shadow-md hover:bg-gray-400" appearance="primary" color="cyan" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+            <Button
+                className="btn ml-4 text-gray-800 text-lg shadow-md hover:bg-gray-400"
+                appearance="primary"
+                color="cyan"
+                onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
                 Log Out
             </Button>
         )

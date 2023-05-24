@@ -10,7 +10,7 @@ const base = new Airtable({ apiKey: process.env.REACT_APP_AIRTABLE_API_KEY }).ba
 
 function Home() {
     const [stylists, setStylists] = useState([]);
-
+    const { isLoading } = useAuth0();
 
     useEffect(() => {
         base("stylists")
@@ -22,10 +22,6 @@ function Home() {
 
     }, []);
 
-
-
-    const { isLoading } = useAuth0();
-
     if (isLoading) {
         return (
             <div className='Card'>
@@ -36,7 +32,7 @@ function Home() {
 
     return (
         <section className='Home'>
-            <img src={process.env.PUBLIC_URL + '/imgs/banner-1.png'} alt="Banner" className='banner'/>
+            <img src={process.env.PUBLIC_URL + '/imgs/banner-1.png'} alt="Banner" className='banner' />
             <Message className='Message'>
                 Seeking styling assistance for an upcoming event? Want to upgrade your wardrobe? Book a session with a stylist and start transforming your look! Our experts will ensure you shine at any occasion while helping you discover your unique style. Pick a stylist below to get started!</Message>
             <Row className='Row'>
