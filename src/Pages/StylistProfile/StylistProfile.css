@@ -69,6 +69,7 @@
 
 .custom-slider {
     margin: 0;
+    height: auto !important;
     max-width: 90%;
     box-shadow: 3px 3px 8px #8e8d8d;
 
@@ -81,11 +82,6 @@
 @media screen and (max-width: 1205px) {
     .Name {
         font-size: 2em;
-    }
-
-    .custom-slider {
-        margin-left: 10px;
-        max-width: 100%;
     }
 
 }
