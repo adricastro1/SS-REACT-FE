@@ -58,7 +58,7 @@ const AddReviewForm = () => {
                 <Input type="text" value={name} onChange={(value) => setName(value)} />
               </Form.Group>
             </FlexboxGrid.Item>
-            
+
             <FlexboxGrid.Item colspan={9}>
               <Form.Group controlId="rating">
                 <Form.ControlLabel>Rating:</Form.ControlLabel>

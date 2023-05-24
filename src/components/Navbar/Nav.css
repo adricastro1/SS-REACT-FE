@@ -6,9 +6,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-
 }
-
 
 .home-link,
 .home-link:visited,
@@ -20,9 +18,9 @@
     cursor: pointer;
     font-weight: 700;
     margin-left: 20px;
-    
 }
-.home-link:hover{
+
+.home-link:hover {
     color: #686767;
     text-decoration: none;
 }

@@ -72,7 +72,6 @@
     height: auto !important;
     max-width: 90%;
     box-shadow: 3px 3px 8px #8e8d8d;
-
 }
 
 .rs-carousel-slider-item {
@@ -83,7 +82,6 @@
     .Name {
         font-size: 2em;
     }
-
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -156,10 +154,10 @@
     .rs-flex-box-grid-item-11 {
         width: 100% !important;
     }
+
     .rs-flex-box-grid-item-13 {
         width: 100% !important;
     }
-
 
     .Name {
         font-size: 2.5em;
