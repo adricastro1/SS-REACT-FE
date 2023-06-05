@@ -75,7 +75,8 @@ const AddReviewForm = () => {
           <Button appearance="primary" type="submit">Submit</Button>
         </Form>
       ) : (
-        <h3 className='login-message'>Please log in to leave a review.</h3>
+        <h3 className='login-message'>Please log in to leave a review.
+        <br/><span className='guest-message'>(Demo login provided in login page)</span></h3>
       )}
     </>
   );
